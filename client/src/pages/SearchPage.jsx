@@ -3,7 +3,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 export default function SearchPage () {
-// when you are back finish up making the search page and then move to the next page
+// when you are back finish up making the search page and then move to the next page, we were working on the search bar styling
   return (
     <>
         <Nav />
