@@ -1,28 +1,22 @@
 import Login from './pages/Login'
 import Register from './pages/Register'
+import DestinationPage from './pages/DestinationPage'
+import SearchPage from './pages/SearchPage'
 import './App.css'
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 
 function App() {
-
-  // useEffect(() => {
-
-  //   const getData = async function(){
-  //     const response = await fetch("https://localhost:5000")
-  //     console.log(response)
-  //   }
-
-  //   getData()
-
-
-  // }, [])
 
 
   return (
     <>
-      <Register />
+      
+      <SearchPage />
       <Login />
-
+      <Register />
+      <DestinationPage />
+      
+      
     </>
   )
 }
