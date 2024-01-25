@@ -1,13 +1,13 @@
 import React from 'react'
 import Nav from '../components/Nav'
 
-export default function AccountPage () {
+export default function About () {
   return (
     <>
         <Nav />
-        <div>
-            AccountPage
-        </div>
+       <div>
+            About
+        </div> 
     </>
 
   )
