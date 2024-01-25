@@ -1,5 +1,6 @@
 import React from 'react'
 import Nav from '../components/Nav'
+import Footer from '../components/Footer'
 
 export default function AccountPage () {
   return (
@@ -8,6 +9,7 @@ export default function AccountPage () {
         <div>
             AccountPage
         </div>
+        <Footer />
     </>
 
   )
