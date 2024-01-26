@@ -12,7 +12,7 @@ export default function SearchPage () {
 
     const Search = async (value) =>{
         try{
-            let searchResult = await fetch(`https://api.content.tripadvisor.com/api/v1/location/search?searchQuery=${input}&language=en&key=${tripAdvisor}`)
+            let searchResult = await fetch(` https://api.content.tripadvisor.com/api/v1/location/search?searchQuery=${input}&language=en&key=${tripAdvisor}`)
             searchResult = await searchResult.json()
             setResult(searchResult.data)
             console.log(searchResult.data)
