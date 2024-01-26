@@ -38,7 +38,7 @@ export default function SearchPage () {
                 <h1 className='text-4xl mb-20'>So, where do you want to go?</h1>
                 <form className='mt-35'>
                     <div className='bg-gray-300 text-black rounded-xl h-12 w-4/5 mx-auto shadow-2xl' >       
-                        <input type="text" onChange={handleChange} value={input} className='w-4/5 h-full text-2xl '/>
+                        <input type="text" value={input} onChange={ (e) => handleChange(e.target.value)} className='w-4/5 h-full text-2xl '/>
                         <input type="Submit" onClick={Search} className='' />
                     </div>
                 </form>
