@@ -9,8 +9,11 @@ const PORT = 5000
 
 require('dotenv').config()
 
+const userRoutes = require('./routes/userRoutes')
+const authRoutes = require('./routes/authRoutes')
+const apiRoutes = require('./routes/apiRoutes')
+const tripRoutes = require('./routes/tripRoutes')
 
-const User = require('../backend/models/User')
 
 //middleware
 app.use(cors({
@@ -31,28 +34,12 @@ app.use(methodOverride('_method'))
 
 // routes
 app.get('/', async (req, res)=>{
-  res.send('coolio')
+  res.send('welcome to the backend')
 })
 
-app.get('/test', async (req, res)=>{
-  let searchResult = await fetch(` https://api.content.tripadvisor.com/api/v1/location/search?searchQuery=${'detroit'}&language=en&key=${'1899AA92DCE949989AB081910E043CCA'}`)
-  searchResult = await searchResult.json()
-  console.log(searchResult)
-  res.send('i guess its working')
-})
 
-app.post('user', async (req, res)=>{
-  try {
-    // console.log(req.body)
-    const result = await User.create({
-      username: "testtesttest",
-      password: "tester"
-    })
-    console.log("data saved", result)
-  } catch (error) {
-    
-  }
-})
+
+//"listener"
 
 app.listen(PORT, () =>{  
   console.log("listening on port " + PORT)  
