@@ -24,7 +24,7 @@ app.use(cors({
 }));
 
 app.use((req, res, next) =>{
-  console.log(req.path, req.method)
+  console.log(req.path, req.method, req.body)
   next()
 })
 
@@ -34,13 +34,12 @@ app.use(methodOverride('_method'))
 
 // routes
 app.get('/', async (req, res)=>{
-  res.send('welcome to the backend')
+  res.send(`${req.body}`)
 })
 
 
 
 //"listener"
-
 app.listen(PORT, () =>{  
   console.log("listening on port " + PORT)  
   mongoConfig()
