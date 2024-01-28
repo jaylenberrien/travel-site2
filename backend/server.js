@@ -5,6 +5,7 @@ const app = express()
 const methodOverride = require('method-override')
 const mongoConfig = require('./config')
 const cors = require('cors')
+const bodyParser = require('body-parser');
 const PORT = 5000 
 
 require('dotenv').config()
@@ -13,7 +14,7 @@ const userRoutes = require('./routes/userRoutes')
 const authRoutes = require('./routes/authRoutes')
 const apiRoutes = require('./routes/apiRoutes')
 const tripRoutes = require('./routes/tripRoutes')
-
+const searches = require('./models/search')
 
 //middleware
 app.use(cors({
@@ -22,6 +23,8 @@ app.use(cors({
   credentials: true,
   optionsSuccessStatus: 200,
 }));
+
+app.use(bodyParser.json());
 
 app.use((req, res, next) =>{
   console.log(req.path, req.method, req.body)
@@ -34,7 +37,7 @@ app.use(methodOverride('_method'))
 
 // routes
 app.get('/', async (req, res)=>{
-  res.send(`${req.body}`)
+  res.send(`${searches}`)
 })
 
 

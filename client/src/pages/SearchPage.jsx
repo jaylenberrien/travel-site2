@@ -27,12 +27,27 @@ export default function SearchPage () {
             let post={
                 query: value
             }
-            const response = await axios.post('/api/', post)
+            const response = await axios.post('/api/search', post)
             console.log(response.data)
         } catch (error) {
             console.log(error)
         }
     }
+
+    // try {
+    //     console.log(value)
+    //     let post={
+    //         query: value
+    //     }
+    //     const response = await fetch('/api/search', {
+    //         method: 'POST',
+    //         headers:{
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(post)
+    //     })
+    //     const resultInJson = await response.json();
+    //     console.log(resultInJson)
 
     const handleChange = (value) =>{
         setInput(value)
