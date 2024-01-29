@@ -18,7 +18,7 @@ const searches = require('./models/search')
 
 //middleware
 app.use(cors({
-  origin:'http://localhost:5173',
+  origin: 'http://localhost:5173',
   methods: 'GET, HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   optionsSuccessStatus: 200,
@@ -34,10 +34,11 @@ app.use((req, res, next) =>{
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 
+app.use('/search', apiRoutes)
 
 // routes
 app.get('/', async (req, res)=>{
-  res.send(`${searches}`)
+  res.send(`${req.body}`)
 })
 
 
