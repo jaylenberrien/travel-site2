@@ -1,6 +1,6 @@
 // const search = require('../models/search')
 // const searches = require('./models/search')
-// const tripAdvisor = import.meta.env.VITE_TRIPADVISOR;
+ const tripAdvisor = process.env.VITE_TRIPADVISOR;
 
 // app.get('/call/', async (req, res)=>{
 //   let searchResult = await fetch(` https://api.content.tripadvisor.com/api/v1/location/search?searchQuery=${'detroit'}category=geos&language=en&key=${'1899AA92DCE949989AB081910E043CCA'}`)
@@ -9,11 +9,10 @@
 // })
 
 const passQuery = async (req, res)=>{
-  const searchQuery = req.body
-  // let searchResult = await fetch(` https://api.content.tripadvisor.com/api/v1/location/search?searchQuery=${searchQuery}category=geos&language=en&key=${tripAdvisor}`)
-  // searchResult = await searchResult.json()
-  console.log(searchQuery)
-  // console.log(searchQuery)  
+  const searchQuery = req.body.query
+  let searchResult = await fetch(` https://api.content.tripadvisor.com/api/v1/location/search?searchQuery=${searchQuery}&category=geos&language=en&key=${tripAdvisor}`)
+  searchResult = await searchResult.json()
+  console.log(searchResult)
 }
 
 module.exports = {
@@ -21,4 +20,3 @@ module.exports = {
 }
 
 // so the last idea that i had didnt work, will have to continue debugging
- 

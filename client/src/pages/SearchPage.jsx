@@ -27,7 +27,8 @@ export default function SearchPage () {
             let post={
                 query: value
             }
-            const response = await axios.post('http://localhost:5000/search', post)
+            const tripAdvisor = import.meta.env.VITE_TRIPADVISOR
+            const response = await axios.post('http://localhost:5000/search', post, tripAdvisor)
             console.log(response.data)
         } catch (error) {
             console.log(error)
@@ -64,7 +65,8 @@ export default function SearchPage () {
                 <form className='mt-35' onSubmit={(e) => { e.preventDefault(); Search(input); }}>
                     <div className='bg-gray-300 text-black rounded-xl h-12 w-4/5 mx-auto shadow-2xl' >       
                         <input type="text" value={input} onChange={ (e) => handleChange(e.target.value)} className='w-4/5 h-full text-2xl '/>
-                        <input type="Submit" onClick={Search(input)} className='' />
+                        {/* <input type="Submit" onClick={Search(input)} className='' /> */}
+                        <button>Submit</button>
                     </div>
                 </form>
                 <img src='https://cdn.i-scmp.com/sites/default/files/images/methode/2018/03/28/7167c942-322c-11e8-9019-a420e6317de0_image_hires_164927.jpg' className='h-3/5 w-full pt-10 mt-20'/>

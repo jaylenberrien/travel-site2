@@ -3,7 +3,7 @@ const express = require('express')
 const router = express.Router()
 
 //route to receive the post call
-router.get('/', apiController.passQuery)
+router.post('/', apiController.passQuery)
 
 
 module.exports = router
