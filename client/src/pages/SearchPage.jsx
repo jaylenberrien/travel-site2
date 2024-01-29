@@ -28,7 +28,7 @@ export default function SearchPage () {
                 query: value
             }
             const tripAdvisor = import.meta.env.VITE_TRIPADVISOR
-            const response = await axios.post('http://localhost:5000/search', post, tripAdvisor)
+            const response = await axios.post('http://localhost:5000/search/city', post, tripAdvisor)
             console.log(response.data)
         } catch (error) {
             console.log(error)
