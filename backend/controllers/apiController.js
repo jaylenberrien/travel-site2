@@ -9,13 +9,16 @@
 // })
 
 const passQuery = async (req, res)=>{
-  const searchQuery = req.body.query
+  const searchQuery = req.body
   // let searchResult = await fetch(` https://api.content.tripadvisor.com/api/v1/location/search?searchQuery=${searchQuery}category=geos&language=en&key=${tripAdvisor}`)
   // searchResult = await searchResult.json()
-  console.log(searchResult)
+  console.log(searchQuery)
   // console.log(searchQuery)  
 }
 
 module.exports = {
   passQuery,
 }
+
+// so the last idea that i had didnt work, will have to continue debugging
+ 
