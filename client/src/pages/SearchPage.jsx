@@ -6,10 +6,10 @@ import axios from 'axios';
 
 export default function SearchPage () {
 
-    // const tripAdvisor = import.meta.env.VITE_TRIPADVISOR;
+ 
 
     const [input, setInput] = useState("");
-    // const [results, setResult] = useState(null);
+    const [searchResults, setSearchResults] = useState([]);
 
     const Search = async (value) =>{
         try{
@@ -27,33 +27,24 @@ export default function SearchPage () {
             let post={
                 query: value
             }
-            const tripAdvisor = import.meta.env.VITE_TRIPADVISOR
-            const response = await axios.post('http://localhost:5000/search/city', post, tripAdvisor)
-            console.log(response.data)
+            const response = await axios.post('http://localhost:5000/search/city', post)
+            setSearchResults(response.data)
+            console.log(searchResults.originalData)
         } catch (error) {
             console.log(error)
         }
     }
 
-    // try {
-    //     console.log(value)
-    //     let post={
-    //         query: value
-    //     }
-    //     const response = await fetch('/api/search', {
-    //         method: 'POST',
-    //         headers:{
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(post)
-    //     })
-    //     const resultInJson = await response.json();
-    //     console.log(resultInJson)
+    const suggestion = function(){
+        let suggestions = searchResults.originalData.map(console.log("hi"))
+        return suggestions
+    }
 
     const handleChange = (value) =>{
         setInput(value)
         Typing(value)
         Search(value)
+        suggestion()
     }
 
   return (
@@ -64,7 +55,7 @@ export default function SearchPage () {
                 <h1 className='text-4xl mb-20'>So, where do you want to go?</h1>
                 <form className='mt-35' onSubmit={(e) => { e.preventDefault(); Search(input); }}>
                     <div className='bg-gray-300 text-black rounded-xl h-12 w-4/5 mx-auto shadow-2xl' >       
-                        <input type="text" value={input} onChange={ (e) => handleChange(e.target.value)} className='w-4/5 h-full text-2xl '/>
+                        <input type="text" value={input} onChange={ (e) => handleChange(e.target.value) } className='w-4/5 h-full text-2xl '/>
                         {/* <input type="Submit" onClick={Search(input)} className='' /> */}
                         <button>Submit</button>
                     </div>
