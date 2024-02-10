@@ -3,13 +3,15 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import { useState } from "react"
 import axios from 'axios';
+// import Suggestion from '../components/Suggestion';
 
 export default function SearchPage () {
 
  
 
     const [input, setInput] = useState("");
-    const [searchResults, setSearchResults] = useState([]);
+    const [suggestion, setSuggestion] = useState([]);
+    // const [showSuggestion, setShowSSuggestion] = useState([]);
 
     const Search = async (value) =>{
         try{
@@ -28,23 +30,39 @@ export default function SearchPage () {
                 query: value
             }
             const response = await axios.post('http://localhost:5000/search/city', post)
-            setSearchResults(response.data)
-            console.log(searchResults.originalData)
+            // setSuggestion(response.data)
+
+            
+            const suggestionInfo = response.data.originalData.data
+            console.log(suggestionInfo)
+            const suggestionList = suggestionInfo.slice(0,5).map(suggestion => ({
+                id: suggestion.location_id,
+                name: suggestion.address_obj.address_string
+            }));
+            setSuggestion(suggestionList);
+            // for (let i = 0; i <= 4; i++){
+            //     let id = suggestion[i].location_id
+            //     let name = suggestion[i].name
+            //     return(
+            //         <div key={id} className='bg-blue-300'>
+            //             <p>`${name}`</p>
+            //         </div>
+            //     )
+            // }
         } catch (error) {
             console.log(error)
         }
     }
 
-    const suggestion = function(){
-        let suggestions = searchResults.originalData.map(console.log("hi"))
-        return suggestions
-    }
+    // const suggestion = function(){
+    //     let suggestions = suggestion.originalData.map(console.log("hi"))
+    //     return suggestions
+    // }
 
     const handleChange = (value) =>{
         setInput(value)
         Typing(value)
         Search(value)
-        suggestion()
     }
 
   return (
@@ -60,6 +78,13 @@ export default function SearchPage () {
                         <button>Submit</button>
                     </div>
                 </form>
+                <div>
+                    {suggestion.map((suggestion) =>(
+                        <div key={suggestion.id}>
+                            <p>{suggestion.name}</p>
+                        </div>
+                    ))}
+                </div>
                 <img src='https://cdn.i-scmp.com/sites/default/files/images/methode/2018/03/28/7167c942-322c-11e8-9019-a420e6317de0_image_hires_164927.jpg' className='h-3/5 w-full pt-10 mt-20'/>
             </div>
             

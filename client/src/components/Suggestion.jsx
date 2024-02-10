@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function SuggestionBar(){
+export default function Suggestion(){
     return (
         <>
             <div key={location_id}>
-                {address_obj}
+                {name}
             </div>
         </>
     )

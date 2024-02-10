@@ -13,14 +13,15 @@ function App() {
 
   return (
     <>
+      {/* <Login /> */}
+      {/* <Register /> */}
       <Routes>
         <Route path='/' element={<SearchPage />}/>
         <Route path='/account' element={<AccountPage/>}/>
         <Route path='/about' element={<About/>}/>
       </Routes>
-      <DestinationPage />
-      {/* <Login />
-      <Register /> */}
+      {/* <DestinationPage /> */}
+      
     
       
       
