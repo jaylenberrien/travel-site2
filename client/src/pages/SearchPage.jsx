@@ -3,6 +3,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import { useState } from "react"
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 // import Suggestion from '../components/Suggestion';
 
 export default function SearchPage () {
@@ -80,9 +81,12 @@ export default function SearchPage () {
                 </form>
                 <div>
                     {suggestion.map((suggestion) =>(
-                        <div key={suggestion.id}>
-                            <p>{suggestion.name}</p>
-                        </div>
+                        <Link key={suggestion.id} to={"/destination/" + suggestion.id}>
+                            <div>
+                                <p>{suggestion.name}</p>
+                            </div>
+                        </Link>
+                        
                     ))}
                 </div>
                 <img src='https://cdn.i-scmp.com/sites/default/files/images/methode/2018/03/28/7167c942-322c-11e8-9019-a420e6317de0_image_hires_164927.jpg' className='h-3/5 w-full pt-10 mt-20'/>
