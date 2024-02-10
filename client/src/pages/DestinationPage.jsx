@@ -1,5 +1,5 @@
 import React from 'react'
-import Nav from '../components/Nav'
+import FixedNav from '../components/FixedNav'
 import Footer from '../components/Footer'
 import DestinationPage1 from '../components/DestinationPage1'
 import DestinationPage2 from '../components/DestinationPage2'
@@ -10,7 +10,7 @@ export default function DestinationPage() {
 
   return (
     <>
-      <Nav />
+      <FixedNav />
       <DestinationPage1 />
       <DestinationPage2 />
       <DestinationPage3 />

@@ -15,12 +15,12 @@ function App() {
     <>
       {/* <Login /> */}
       {/* <Register /> */}
-      <Routes>
+      {/* <Routes>
         <Route path='/' element={<SearchPage />}/>
         <Route path='/account' element={<AccountPage/>}/>
         <Route path='/about' element={<About/>}/>
-      </Routes>
-      {/* <DestinationPage /> */}
+      </Routes> */}
+      <DestinationPage />
       
     
       
