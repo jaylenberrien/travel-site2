@@ -1,5 +1,6 @@
 const tripAdvisor = process.env.VITE_TRIPADVISOR;
 let storeData
+let storePics
 
 
 const passQuery = async (req, res)=>{
@@ -12,10 +13,18 @@ const passQuery = async (req, res)=>{
   
 }
 
+const passPics = async (req, res)=>{
+  const code = req.body.locationId
+  let callPics = await fetch(`https://api.content.tripadvisor.com/api/v1/location/${code}/photos?key=${tripAdvisor}&language=en'`)
+  storePics = await callPics.json()
+  console.log(storePics)
+  res.json({ picData: storePics })
+}
 
 
 module.exports = {
   passQuery,
+  passPics,
 
 }
 

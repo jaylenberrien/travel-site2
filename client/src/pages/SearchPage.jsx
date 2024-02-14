@@ -4,7 +4,8 @@ import Footer from '../components/Footer'
 import { useState } from "react"
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-// import Suggestion from '../components/Suggestion';
+import { useParams } from 'react-router-dom';
+
 
 export default function SearchPage () {
 
@@ -12,7 +13,7 @@ export default function SearchPage () {
 
     const [input, setInput] = useState("");
     const [suggestion, setSuggestion] = useState([]);
-    // const [showSuggestion, setShowSSuggestion] = useState([]);
+ 
 
     const Search = async (value) =>{
         try{
@@ -38,28 +39,17 @@ export default function SearchPage () {
             console.log(suggestionInfo)
             const suggestionList = suggestionInfo.slice(0,5).map(suggestion => ({
                 id: suggestion.location_id,
-                name: suggestion.address_obj.address_string
+                name: suggestion.address_obj.address_string,
+                nickname: suggestion.name
             }));
             setSuggestion(suggestionList);
-            // for (let i = 0; i <= 4; i++){
-            //     let id = suggestion[i].location_id
-            //     let name = suggestion[i].name
-            //     return(
-            //         <div key={id} className='bg-blue-300'>
-            //             <p>`${name}`</p>
-            //         </div>
-            //     )
-            // }
+
         } catch (error) {
             console.log(error)
         }
     }
 
-    // const suggestion = function(){
-    //     let suggestions = suggestion.originalData.map(console.log("hi"))
-    //     return suggestions
-    // }
-
+  
     const handleChange = (value) =>{
         setInput(value)
         Typing(value)
@@ -81,7 +71,7 @@ export default function SearchPage () {
                 </form>
                 <div>
                     {suggestion.map((suggestion) =>(
-                        <Link key={suggestion.id} to={"/destination/" + suggestion.id}>
+                        <Link key={suggestion.id} to={"/" + suggestion.nickname + "/" + suggestion.id}>
                             <div>
                                 <p>{suggestion.name}</p>
                             </div>

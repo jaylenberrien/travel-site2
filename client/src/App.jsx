@@ -17,7 +17,7 @@ function App() {
       {/* <Register /> */}
       <Routes>
         <Route path='/' element={<SearchPage />}/>
-        <Route path='/destination/:id' element={<DestinationPage />}/>
+        <Route path='/:nickname/:id' element={<DestinationPage />}/>
         <Route path='/account' element={<AccountPage/>}/>
         <Route path='/about' element={<About/>}/>
 
