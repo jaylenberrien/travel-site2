@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
@@ -8,21 +8,27 @@ export default function DestinationPage1 () {
 
   const { id } = useParams();
   const { nickname } = useParams();
+  const [pic1, setPic1] = useState()
 
-  const Pics = async function (){
+  useEffect(()=>{
+    const Pics = async function (){
 
-    try {
-      let post={
-        locationId: id
-      }  
-      const response = await axios.post('http://localhost:5000/search/photos', post)
-      picData.data.index.images.small.url
-      //that is the path to get to the pictures that we want from the response
-    } catch (error) {
-      
+      try {
+        let post={
+          locationId: id
+        }  
+        const response = await axios.post('http://localhost:5000/search/photos', post)
+        const pic1Url = response.picData.data[0].images.small.url
+        console.log(pic1Url)
+        setPic1(pic1Url)
+        //that is the path to get to the pictures that we want from the response
+      } catch (error) {
+        console.log(error)
+      }
     }
-  }
-  Pics()
+    Pics()
+  }, [id])
+
 
   return (
     <div className='h-screen pt-20 flex flex-col'>
@@ -32,7 +38,7 @@ export default function DestinationPage1 () {
           <p>big pic</p>
         </div>
         <div>
-          <p>small pic 1</p>
+          <img src = {pic1} />
         </div>
         <div>
           <p>small pic 2</p>
