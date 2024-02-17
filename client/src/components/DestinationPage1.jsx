@@ -9,6 +9,8 @@ export default function DestinationPage1 () {
   const { id } = useParams();
   const { nickname } = useParams();
   const [pic1, setPic1] = useState()
+  const [pic2, setPic2] = useState()
+  const [pic3, setPic3] = useState()
 
   useEffect(()=>{
     const Pics = async function (){
@@ -17,11 +19,17 @@ export default function DestinationPage1 () {
         let post={
           locationId: id
         }  
-        const response = await axios.post('http://localhost:5000/search/photos', post)
-        const pic1Url = response.picData.data[0].images.small.url
-        console.log(pic1Url)
+        const response1 = await axios.post('http://localhost:5000/search/photos', post)
+        const pic1Url = response1.data.picData.data[0].images.large.url
         setPic1(pic1Url)
-        //that is the path to get to the pictures that we want from the response
+
+        const response2 = await axios.post('http://localhost:5000/search/photos', post)
+        const pic2Url = response2.data.picData.data[3].images.large.url
+        setPic2(pic2Url)
+
+        const response3 = await axios.post('http://localhost:5000/search/photos', post)
+        const pic3Url = response3.data.picData.data[2].images.large.url
+        setPic3(pic3Url)
       } catch (error) {
         console.log(error)
       }
@@ -35,13 +43,13 @@ export default function DestinationPage1 () {
       <div><h1>Welcome to {nickname}</h1> </div>
       <div className='bg-blue-300 h-4/5 my-auto grid text-center grid-cols-2'>
         <div className='row-span-2'>
-          <p>big pic</p>
+          <img src = {pic3} />
         </div>
         <div>
           <img src = {pic1} />
         </div>
         <div>
-          <p>small pic 2</p>
+          <img src = {pic2} />
         </div>
       </div>
         

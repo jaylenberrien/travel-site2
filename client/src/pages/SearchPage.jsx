@@ -91,3 +91,4 @@ export default function SearchPage () {
   )
 }
 
+//for some reason im not able to get the url for the pictures i want to add with the method that im using now, will have to do some research and expierement a little to figure something out
