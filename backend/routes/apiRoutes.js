@@ -9,5 +9,5 @@ router.post('/photos', apiController.passPics)
 
 router.post('/bio', apiController.passBio)
 
-
+router.post('/review', apiController.passReview)
 module.exports = router

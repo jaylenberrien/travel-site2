@@ -11,7 +11,8 @@ export default function DestinationPage2 () {
 
   const { id } = useParams();
   const { nickname } = useParams();
-  const [bio, setBio] = useState()
+  const [bio, setBio] = useState();
+  const [review, setReview] = useState();
 
 
   useEffect(()=>{
@@ -27,7 +28,25 @@ export default function DestinationPage2 () {
         console.log(error)
       }
     }
+
+    const Review = async function(){
+
+      try {
+        let post ={
+          locationId: id
+        }
+        const response = await axios.post('http://localhost:5000/search/review', post)
+        const reviewResponse = response.data.reviewData.ranking_data.ranking_string
+        setReview(reviewResponse)        
+      } catch (error) {
+        console.log(error)
+      }
+
+
+    }
+
     Bios()
+    Review()
   }, [id])
   
 
@@ -58,3 +77,11 @@ export default function DestinationPage2 () {
 // are for making the destination page, im prolly not going to add the reviews
 // i dont know if im going to add something else or just move over the review and
 // the name of the page
+
+//im going to have to find something else to put, i tried to use something else that 
+// was supposed to be in the response but it wasnt there. maybe a picture of some sort
+//would be good, even if i cant find anything else to add it would be okay, i could just style it better
+
+//if we dont decide to replace the reviews we are going to add icons of some sort to the things that we
+//want to have added to trips after we finish the last section of the page and then we can work on either
+//adding those things to the database or login and user auth, whichever has to be done first

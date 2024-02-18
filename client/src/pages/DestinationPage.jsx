@@ -14,7 +14,7 @@ export default function DestinationPage() {
       <DestinationPage1 />
       <DestinationPage2 />
       <DestinationPage3 />
-      <DestinationPage4 />
+      {/* <DestinationPage4 /> */}
       <Footer/>
     </>
   )
