@@ -7,5 +7,7 @@ router.post('/city', apiController.passQuery)
 
 router.post('/photos', apiController.passPics)
 
+router.post('/bio', apiController.passBio)
+
 
 module.exports = router

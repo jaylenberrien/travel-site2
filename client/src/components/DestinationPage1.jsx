@@ -20,11 +20,11 @@ export default function DestinationPage1 () {
           locationId: id
         }  
         const response1 = await axios.post('http://localhost:5000/search/photos', post)
-        const pic1Url = response1.data.picData.data[0].images.large.url
+        const pic1Url = response1.data.picData.data[0].images.medium.url
         setPic1(pic1Url)
 
         const response2 = await axios.post('http://localhost:5000/search/photos', post)
-        const pic2Url = response2.data.picData.data[3].images.large.url
+        const pic2Url = response2.data.picData.data[3].images.medium.url
         setPic2(pic2Url)
 
         const response3 = await axios.post('http://localhost:5000/search/photos', post)
@@ -57,4 +57,6 @@ export default function DestinationPage1 () {
   )
 }
 
-//i got the params to work now im going to use them for the initial api calls that i need, then we are setting up the rest of them, we are going to do them all from the backend so use what we have learned and done so far
+// i need to order the pictures in the right way with the grid and the 
+// order of pictures, for now we can move on the the next component
+// i will also need to shape the pictures that are in the colored part of the div

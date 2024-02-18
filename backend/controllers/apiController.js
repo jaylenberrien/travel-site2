@@ -1,6 +1,7 @@
 const tripAdvisor = process.env.VITE_TRIPADVISOR;
 let storeData
 let storePics
+let storeBio
 
 
 const passQuery = async (req, res)=>{
@@ -21,10 +22,18 @@ const passPics = async (req, res)=>{
   res.json({ picData: storePics })
 }
 
+ const passBio = async (req, res)=>{
+  const code = req.body.locationId
+  let callBio = await fetch(`https://api.content.tripadvisor.com/api/v1/location/${code}/details?key=${tripAdvisor}&language=en&currency=USD`,)
+  storeBio = await callBio.json()
+  console.log(storeBio)
+  res.json({ bioData: storeBio })
+ }
 
 module.exports = {
   passQuery,
   passPics,
+  passBio
 
 }
 
