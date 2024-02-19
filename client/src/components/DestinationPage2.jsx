@@ -12,7 +12,7 @@ export default function DestinationPage2 () {
   const { id } = useParams();
   const { nickname } = useParams();
   const [bio, setBio] = useState();
-  const [review, setReview] = useState();
+
 
 
   useEffect(()=>{
@@ -29,24 +29,9 @@ export default function DestinationPage2 () {
       }
     }
 
-    const Review = async function(){
-
-      try {
-        let post ={
-          locationId: id
-        }
-        const response = await axios.post('http://localhost:5000/search/review', post)
-        const reviewResponse = response.data.reviewData.ranking_data.ranking_string
-        setReview(reviewResponse)        
-      } catch (error) {
-        console.log(error)
-      }
-
-
-    }
 
     Bios()
-    Review()
+    
   }, [id])
   
 
@@ -59,12 +44,6 @@ export default function DestinationPage2 () {
       <div className='bg-blue-300 h-4/5 my-auto grid text-center grid-cols-2'>
         <div className='row-span-2'>
           <p>{bio}</p>
-        </div>
-        <div>
-          <p>This is where the first review will go</p>
-        </div>
-        <div>
-          <p>This is where the second review will go </p>
         </div>
       </div>
     </div>
@@ -85,3 +64,5 @@ export default function DestinationPage2 () {
 //if we dont decide to replace the reviews we are going to add icons of some sort to the things that we
 //want to have added to trips after we finish the last section of the page and then we can work on either
 //adding those things to the database or login and user auth, whichever has to be done first
+// im thinking that instead of hard coding all of the api response results that were going to pop up on the page
+// i could've mapped them

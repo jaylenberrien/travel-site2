@@ -9,5 +9,7 @@ router.post('/photos', apiController.passPics)
 
 router.post('/bio', apiController.passBio)
 
-router.post('/review', apiController.passReview)
+router.post('/location', apiController.passLocation)
+
+router.post('/restaurants', apiController.passRestaurants)
 module.exports = router

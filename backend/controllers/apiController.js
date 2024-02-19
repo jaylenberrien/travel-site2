@@ -2,7 +2,8 @@ const tripAdvisor = process.env.VITE_TRIPADVISOR;
 let storeData
 let storePics
 let storeBio
-let storeReview
+let storeLocation
+let storeRestaurants
 
 
 const passQuery = async (req, res)=>{
@@ -31,19 +32,31 @@ const passPics = async (req, res)=>{
   res.json({ bioData: storeBio })
  }
 
- const passReview = async (req, res)=>{
+ const passLocation = async (req, res)=>{
   const code = req.body.locationId
-  let callReview = await fetch(`https://api.content.tripadvisor.com/api/v1/location/${code}/details?key=${tripAdvisor}&language=en&currency=USD`)
-  storeReview = await callReview.json()
-  console.log(storeReview)
-  res.json({ reviewData: storeReview})
+  let callLocation = await fetch(`https://api.content.tripadvisor.com/api/v1/location/${code}/details?key=${tripAdvisor}&language=en&currency=USD`)
+  storeLocation = await callLocation.json()
+  console.log(storeLocation)
+  res.json({ locationData : storeLocation})
+
  }
+
+ const passRestaurants = async (req, res)=>{
+  const code = req.body.locationInfo
+  let callRestuarants = await fetch(`https://api.content.tripadvisor.com/api/v1/location/nearby_search?latLong=${code}&key=${tripAdvisor}&category=restaurants&language=en`)
+  storeRestaurants = await callRestuarants.json()
+  console.log(storeRestaurants)
+  res.json({ restaurantData : storeRestaurants})
+}
+
+
 
 module.exports = {
   passQuery,
   passPics,
   passBio,
-  passReview
+  passLocation,
+  passRestaurants
 
 }
 
