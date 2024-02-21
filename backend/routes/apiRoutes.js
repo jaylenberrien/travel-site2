@@ -12,4 +12,11 @@ router.post('/bio', apiController.passBio)
 router.post('/location', apiController.passLocation)
 
 router.post('/restaurants', apiController.passRestaurants)
+
+router.post('/hotels', apiController.passHotels)
+
+router.post('/attractions', apiController.passAttractions)
+
+router.post('/restaurant-pics', apiController.passRestaurants)
+
 module.exports = router

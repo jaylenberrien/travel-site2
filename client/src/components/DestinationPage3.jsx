@@ -86,19 +86,92 @@ export default function DestinationPage3 () {
     const Experience3 = async function(){
       try {
         let post={
-          locationId: rest1LocationId
+          // locationId1: rest1LocationId,
+          // locationId2: rest2LocationId,
+          // locationId3: rest3LocationId
         }
-        const response = await axios.post('http://localhost:5000/search/photos', post)
-        const rest1PicUrl = response.data.picData.data[0].images.small.url
-        console.log(rest1PicUrl)
+        console.log(post.locationId1)
+        const response1 = await axios.post('http://localhost:5000/search/restaurant-pics', post)
+        const rest1PicUrl = response1.data.restPicData.data[0].images.small.url
+        setRest1LocationUrl(rest1PicUrl)
+        console.log(rest1LocationUrl)
+
+        console.log(post.locationId2)
+        const response2 = await axios.post('http://localhost:5000/search/restaurant-pics', post)
+        const rest2PicUrl = response2.data.restPicData.data[0].images.small.url
+        setRest2LocationUrl(rest2PicUrl)
+        console.log(rest2LocationUrl)
+
       } catch (error) {
         console.log(error)
       }
     }
+
+    const Experience4 = async function(){
+      try {
+        let post = {
+          locationInfo: latLong
+        }
+        
+        const response = await axios.post('http://localhost:5000/search/hotels', post)
+
+        const hotel1Name = response.data.hotelsData.data[0].name
+        setHotel1Location(hotel1Name)
+        const hotel1Id = response.data.hotelsData.data[0].location_id
+        setHotel1LocationId(hotel1Id)
+
+        const hotel2Name = response.data.hotelsData.data[1].name
+        setHotel2Location(hotel2Name)
+        const hotel2Id = response.data.hotelsData.data[1].location_id
+        setHotel2LocationId(hotel2Id)
+
+        const hotel3Name = response.data.hotelsData.data[2].name
+        setHotel3Location(hotel3Name)
+        const hotel3Id = response.data.hotelsData.data[2].location_id
+        setHotel3LocationId(hotel3Id)
+      } catch (error) {
+        console.log(error)
+      }
+
+    }
+
+    const Experience6 = async function(){
+      try {
+        let post = {
+          locationInfo: latLong
+        }
+        
+        const response = await axios.post('http://localhost:5000/search/attractions', post)
+
+        const attraction1Name = response.data.attractionsData.data[0].name
+        setAttraction1Location(attraction1Name)
+        const attraction1Id = response.data.attractionsData.data[0].location_id
+        setAttraction1LocationId(attraction1Id)
+
+        const attraction2Name = response.data.attractionsData.data[1].name
+        setAttraction2Location(attraction2Name)
+        const attraction2Id = response.data.attractionsData.data[1].location_id
+        setAttraction2LocationId(attraction2Id)
+
+        const attraction3Name = response.data.attractionsData.data[2].name
+        setAttraction3Location(attraction3Name)
+        const attraction3Id = response.data.attractionsData.data[2].location_id
+        setAttraction3LocationId(attraction3Id)
+      } catch (error) {
+        console.log(error)
+      }
+
+    }
+
     Experience()
     Experience2()
+    Experience4()
+    Experience6()
     Experience3()
-  },[id])
+   
+    
+    
+  })
 
   return (
     <div className='h-screen flex bg-green-800'>
@@ -107,7 +180,7 @@ export default function DestinationPage3 () {
         <div className='grid grid-cols-4'>
           <div className=' m-4'>
             <p>Restaurants</p>
-            <p>Indulge in some of the best places to eat in {nickname}</p>
+            <p>Indulge in some of the food to to eat in {nickname}</p>
           </div>
           <div className='bg-red-300 m-4'>
             <p>this is where the pic will go</p>
@@ -124,36 +197,36 @@ export default function DestinationPage3 () {
         </div>
         <div className='grid grid-cols-4 grid-rows-2'>
             <div className=' m-4'>
-              <p>places to stay</p>
-              <p>there are some cool places that you can stay</p>
+              <p>Places to stay</p>
+              <p>Places to stay during your trip</p>
             </div>
             <div className='bg-red-300 m-4'>
               <p>this is where the pic will go</p>
-              <p>this is where the name of the place will go</p>
+              <p>{hotel1Location}</p>
             </div>
             <div className='bg-red-300 m-4'>
               <p>this is where the pic will go</p>
-              <p>this is where the name of the place will go</p>
+              <p>{hotel2Location}</p>
             </div>
             <div className='bg-red-300 m-4'>
               <p>this is where the pic will go</p>
-              <p>this is where the name of the place will go</p>
+              <p>{hotel3Location}</p>
             </div>
             <div className=' m-4'>
-              <p>places to stay</p>
-              <p>there are some cool places that you can stay</p>
+              <p>Fun attractions</p>
+              <p>Unique attractions and fun this city has to offer</p>
             </div>
             <div className='bg-red-300 m-4'>
               <p>this is where the pic will go</p>
-              <p>this is where the name of the place will go</p>
+              <p>{attraction1Location}</p>
             </div>
             <div className='bg-red-300 m-4'>
               <p>this is where the pic will go</p>
-              <p>this is where the name of the place will go</p>
+              <p>{attraction2Location}</p>
             </div>
             <div className='bg-red-300 m-4'>
               <p>this is where the pic will go</p>
-              <p>this is where the name of the place will go</p>
+              <p>{attraction3Location}</p>
             </div>
 
       </div>
@@ -165,4 +238,3 @@ export default function DestinationPage3 () {
   )
 }
 
-//i merged my last pages and the ran into an issue that made me have extra components, clean that up and get rid of the review section
