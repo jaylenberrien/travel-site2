@@ -17,6 +17,6 @@ router.post('/hotels', apiController.passHotels)
 
 router.post('/attractions', apiController.passAttractions)
 
-router.post('/restaurant-pics', apiController.passRestaurants)
+router.post('/experience-pics', apiController.passExperiencePics)
 
 module.exports = router

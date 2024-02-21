@@ -86,21 +86,19 @@ export default function DestinationPage3 () {
     const Experience3 = async function(){
       try {
         let post={
-          // locationId1: rest1LocationId,
-          // locationId2: rest2LocationId,
-          // locationId3: rest3LocationId
+          locationId: rest1LocationId
         }
-        console.log(post.locationId1)
-        const response1 = await axios.post('http://localhost:5000/search/restaurant-pics', post)
-        const rest1PicUrl = response1.data.restPicData.data[0].images.small.url
+        console.log(post)
+        const response1 = await axios.post('http://localhost:5000/search/experience-pics', post)
+        const rest1PicUrl = response1.data.expPicData.data[0].images.small.url
         setRest1LocationUrl(rest1PicUrl)
         console.log(rest1LocationUrl)
 
-        console.log(post.locationId2)
-        const response2 = await axios.post('http://localhost:5000/search/restaurant-pics', post)
-        const rest2PicUrl = response2.data.restPicData.data[0].images.small.url
-        setRest2LocationUrl(rest2PicUrl)
-        console.log(rest2LocationUrl)
+        // console.log(post.locationId2)
+        // const response2 = await axios.post('http://localhost:5000/search/restaurant-pics', post)
+        // const rest2PicUrl = response2.data.restPicData.data[0].images.small.url
+        // setRest2LocationUrl(rest2PicUrl)
+        // console.log(rest2LocationUrl)
 
       } catch (error) {
         console.log(error)

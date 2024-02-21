@@ -5,7 +5,7 @@ let storeBio
 let storeLocation
 let storeRestaurants
 let storeHotels
-let storeRestPics
+let storeExpPics
 let storeAttractions
 
 const passQuery = async (req, res)=>{
@@ -66,12 +66,12 @@ const passAttractions = async(req, res)=>{
   res.json({ attractionsData : storeAttractions })
 }
 
-const passRestPics = async (req, res)=>{
+const passExperiencePics = async (req, res)=>{
   const code = req.body.locationId1
-  let callPics = await fetch(`https://api.content.tripadvisor.com/api/v1/location/${code}/photos?key=${tripAdvisor}&language=en`)
-  storeRestPics = await callPics.json()
-  console.log(storeRestPics)
-  res.json({ restPicData: storePics })
+  let callExpPics = await fetch(`https://api.content.tripadvisor.com/api/v1/location/${code}/photos?key=${tripAdvisor}&language=en`)
+  storeExpPics = await callExpPics.json()
+  console.log(storeExpPics)
+  res.json({ expPicData: storeExpPics })
 }
 
 module.exports = {
@@ -82,7 +82,7 @@ module.exports = {
   passRestaurants,
   passHotels,
   passAttractions,
-  passRestPics
+  passExperiencePics,
 
 }
 
