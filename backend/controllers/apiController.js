@@ -67,7 +67,7 @@ const passAttractions = async(req, res)=>{
 }
 
 const passExperiencePics = async (req, res)=>{
-  const code = req.body.locationId1
+  const code = req.body.locationId
   let callExpPics = await fetch(`https://api.content.tripadvisor.com/api/v1/location/${code}/photos?key=${tripAdvisor}&language=en`)
   storeExpPics = await callExpPics.json()
   console.log(storeExpPics)

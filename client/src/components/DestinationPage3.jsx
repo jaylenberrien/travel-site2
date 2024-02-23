@@ -85,20 +85,28 @@ export default function DestinationPage3 () {
 
     const Experience3 = async function(){
       try {
-        let post={
-          locationId: rest1LocationId
-        }
+        let post={locationId: rest1LocationId}
         console.log(post)
         const response1 = await axios.post('http://localhost:5000/search/experience-pics', post)
         const rest1PicUrl = response1.data.expPicData.data[0].images.small.url
         setRest1LocationUrl(rest1PicUrl)
         console.log(rest1LocationUrl)
 
-        // console.log(post.locationId2)
-        // const response2 = await axios.post('http://localhost:5000/search/restaurant-pics', post)
-        // const rest2PicUrl = response2.data.restPicData.data[0].images.small.url
-        // setRest2LocationUrl(rest2PicUrl)
-        // console.log(rest2LocationUrl)
+
+        let post2={locationId: rest2LocationId}
+        console.log(post2)
+        const response2 = await axios.post('http://localhost:5000/search/experience-pics', post2)
+        const rest2PicUrl = response2.data.expPicData.data[1].images.small.url
+        setRest2LocationUrl(rest2PicUrl)
+        console.log(rest2LocationUrl)
+
+        
+        let post3={locationId: rest3LocationId}
+        console.log(post3)
+        const response3 = await axios.post('http://localhost:5000/search/experience-pics', post3)
+        const rest3PicUrl = response3.data.expPicData.data[2].images.small.url
+        setRest3LocationUrl(rest3PicUrl)
+        console.log(rest3LocationUrl)
 
       } catch (error) {
         console.log(error)
@@ -182,6 +190,7 @@ export default function DestinationPage3 () {
           </div>
           <div className='bg-red-300 m-4'>
             <p>this is where the pic will go</p>
+            <img src={rest1LocationUrl} />
             <p>{rest1Location}</p>
           </div>
           <div className='bg-red-300 m-4'>
