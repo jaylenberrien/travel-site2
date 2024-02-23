@@ -86,7 +86,7 @@ export default function DestinationPage3 () {
     const Experience3 = async function(){
       try {
         let post={locationId: rest1LocationId}
-        console.log(post)
+        // console.log(post)
         const response1 = await axios.post('http://localhost:5000/search/experience-pics', post)
         const rest1PicUrl = response1.data.expPicData.data[0].images.small.url
         setRest1LocationUrl(rest1PicUrl)
@@ -94,7 +94,7 @@ export default function DestinationPage3 () {
 
 
         let post2={locationId: rest2LocationId}
-        console.log(post2)
+        // console.log(post2)
         const response2 = await axios.post('http://localhost:5000/search/experience-pics', post2)
         const rest2PicUrl = response2.data.expPicData.data[1].images.small.url
         setRest2LocationUrl(rest2PicUrl)
@@ -102,7 +102,7 @@ export default function DestinationPage3 () {
 
         
         let post3={locationId: rest3LocationId}
-        console.log(post3)
+        // console.log(post3)
         const response3 = await axios.post('http://localhost:5000/search/experience-pics', post3)
         const rest3PicUrl = response3.data.expPicData.data[2].images.small.url
         setRest3LocationUrl(rest3PicUrl)
@@ -171,9 +171,10 @@ export default function DestinationPage3 () {
 
     Experience()
     Experience2()
+    Experience3()
     Experience4()
     Experience6()
-    Experience3()
+    
    
     
     
@@ -189,16 +190,15 @@ export default function DestinationPage3 () {
             <p>Indulge in some of the food to to eat in {nickname}</p>
           </div>
           <div className='bg-red-300 m-4'>
-            <p>this is where the pic will go</p>
             <img src={rest1LocationUrl} />
             <p>{rest1Location}</p>
           </div>
           <div className='bg-red-300 m-4'>
-            <p>this is where the pic will go</p>
+            <img src={rest2LocationUrl} />
             <p>{rest2Location}</p>
           </div>
           <div className='bg-red-300 m-4'>
-            <p>this is where the pic will go</p>
+            <img src={rest3LocationUrl} />
             <p>{rest3Location}</p>
           </div>
         </div>
