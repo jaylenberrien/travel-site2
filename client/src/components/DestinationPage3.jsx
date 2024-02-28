@@ -50,7 +50,7 @@ export default function DestinationPage3 () {
         const latitudeData = response.data.locationData.latitude
         const longitudeData = response.data.locationData.longitude 
         setLatLong(latitudeData + "," + longitudeData)
-        console.log(latLong)
+        // console.log(latLong)
       } catch (error) {
         console.log(error)
       }
@@ -83,34 +83,36 @@ export default function DestinationPage3 () {
 
     }
 
-    const Experience3 = async function(){
+    const RestPics = async function(){
       try {
         let post={locationId: rest1LocationId}
         // console.log(post)
         const response1 = await axios.post('http://localhost:5000/search/experience-pics', post)
         const rest1PicUrl = response1.data.expPicData.data[0].images.small.url
         setRest1LocationUrl(rest1PicUrl)
-        console.log(rest1LocationUrl)
-
-
-        let post2={locationId: rest2LocationId}
-        // console.log(post2)
-        const response2 = await axios.post('http://localhost:5000/search/experience-pics', post2)
-        const rest2PicUrl = response2.data.expPicData.data[1].images.small.url
-        setRest2LocationUrl(rest2PicUrl)
-        console.log(rest2LocationUrl)
-
-        
-        let post3={locationId: rest3LocationId}
-        // console.log(post3)
-        const response3 = await axios.post('http://localhost:5000/search/experience-pics', post3)
-        const rest3PicUrl = response3.data.expPicData.data[2].images.small.url
-        setRest3LocationUrl(rest3PicUrl)
-        console.log(rest3LocationUrl)
-
+     
       } catch (error) {
         console.log(error)
       }
+    }
+
+    const RestPics2 = async function(){
+      let post2={locationId: rest2LocationId}
+      // console.log(post2)
+      const response2 = await axios.post('http://localhost:5000/search/experience-pics', post2)
+      const rest2PicUrl = response2.data.expPicData.data[0].images.small.url
+      setRest2LocationUrl(rest2PicUrl)
+     
+
+    }
+
+    const RestPics3 = async function(){
+      let post3={locationId: rest3LocationId}
+      // console.log(post3)
+      const response3 = await axios.post('http://localhost:5000/search/experience-pics', post3)
+      const rest3PicUrl = response3.data.expPicData.data[0].images.small.url
+      setRest3LocationUrl(rest3PicUrl)
+
     }
 
     const Experience4 = async function(){
@@ -138,6 +140,39 @@ export default function DestinationPage3 () {
       } catch (error) {
         console.log(error)
       }
+
+    }
+
+    const HotelPics = async function(){
+      try {
+        let post={locationId: hotel1LocationId}
+        // console.log(post)
+        const response = await axios.post('http://localhost:5000/search/experience-pics', post)
+        const hotel1PicUrl = response.data.expPicData.data[0].images.small.url
+        setHotel1LocationUrl(hotel1PicUrl)
+     
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    const HotelPics2 = async function(){
+      let post2={locationId: hotel2LocationId}
+      // console.log(post2)
+      const response2 = await axios.post('http://localhost:5000/search/experience-pics', post2)
+      const hotel2PicUrl = response2.data.expPicData.data[0].images.small.url
+      setHotel2LocationUrl(hotel2PicUrl)
+     
+
+    }
+
+    const HotelPics3 = async function(){
+      let post3={locationId: hotel3LocationId}
+      // console.log(post3)
+      const response3 = await axios.post('http://localhost:5000/search/experience-pics', post3)
+      const hotel3PicUrl = response3.data.expPicData.data[0].images.small.url
+      setHotel3LocationUrl(hotel3PicUrl)
+
 
     }
 
@@ -171,9 +206,16 @@ export default function DestinationPage3 () {
 
     Experience()
     Experience2()
-    Experience3()
     Experience4()
+    RestPics()
+    RestPics2()
+    RestPics3()
+    
+    HotelPics()
+    HotelPics2()
+    HotelPics3()
     Experience6()
+
     
    
     
@@ -208,15 +250,15 @@ export default function DestinationPage3 () {
               <p>Places to stay during your trip</p>
             </div>
             <div className='bg-red-300 m-4'>
-              <p>this is where the pic will go</p>
+              <img src={hotel1LocationUrl} />
               <p>{hotel1Location}</p>
             </div>
             <div className='bg-red-300 m-4'>
-              <p>this is where the pic will go</p>
+              <img src={hotel1LocationUrl} />
               <p>{hotel2Location}</p>
             </div>
             <div className='bg-red-300 m-4'>
-              <p>this is where the pic will go</p>
+              <img src={hotel1LocationUrl} />
               <p>{hotel3Location}</p>
             </div>
             <div className=' m-4'>
