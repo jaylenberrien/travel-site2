@@ -35,6 +35,7 @@ app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 
 app.use('/search', apiRoutes)
+app.use('/auth', authRoutes)
 
 // routes
 app.get('/', async (req, res)=>{

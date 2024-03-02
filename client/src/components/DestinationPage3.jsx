@@ -37,7 +37,7 @@ export default function DestinationPage3 () {
   const [attraction2LocationUrl, setAttraction2LocationUrl] = useState()
   const [attraction2Location, setAttraction2Location] = useState()
   const [attraction3Location, setAttraction3Location] = useState()
-  const [attraction3LocationUrl, setAttractioon3LocationUrl] = useState()
+  const [attraction3LocationUrl, setAttraction3LocationUrl] = useState()
   const [attraction3LocationId, setAttraction3LocationId] = useState()
 
   useEffect(()=>{
@@ -204,17 +204,61 @@ export default function DestinationPage3 () {
 
     }
 
+    const AttractionPics = async function(){
+      try {
+        let post={locationId: attraction1LocationId}
+        // console.log(post)
+        const response = await axios.post('http://localhost:5000/search/experience-pics', post)
+        const attraction1LocationUrl = response.data.expPicData.data[0].images
+        setAttraction1LocationUrl(attraction1LocationUrl)
+        console.log(attraction1LocationUrl)
+     
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    const AttractionPics2 = async function(){
+      let post2={locationId: attraction2LocationId}
+      // console.log(post2)
+      const response2 = await axios.post('http://localhost:5000/search/experience-pics', post2)
+      const attraction2LocationUrl = response2.data.expPicData.data[0].images.small.url
+      console.log(attraction2LocationUrl)
+      setAttraction2LocationUrl(attraction2LocationUrl)
+     
+
+    }
+
+    const AttractionPics3 = async function(){
+      let post3={locationId: attraction3LocationId}
+      // console.log(post3)
+      const response3 = await axios.post('http://localhost:5000/search/experience-pics', post3)
+      const attraction3LocationUrl = response3.data.expPicData.data[0].images.small.url
+      console.log(attraction3LocationUrl)
+      setAttraction3LocationUrl(attraction3LocationUrl)
+
+
+    }
+
     Experience()
     Experience2()
     Experience4()
+    Experience6()
+
     RestPics()
     RestPics2()
     RestPics3()
     
+  
     HotelPics()
     HotelPics2()
     HotelPics3()
-    Experience6()
+
+    
+    AttractionPics()
+    AttractionPics2()
+    AttractionPics3()
+    
 
     
    
@@ -254,11 +298,11 @@ export default function DestinationPage3 () {
               <p>{hotel1Location}</p>
             </div>
             <div className='bg-red-300 m-4'>
-              <img src={hotel1LocationUrl} />
+              <img src={hotel2LocationUrl} />
               <p>{hotel2Location}</p>
             </div>
             <div className='bg-red-300 m-4'>
-              <img src={hotel1LocationUrl} />
+              <img src={hotel3LocationUrl} />
               <p>{hotel3Location}</p>
             </div>
             <div className=' m-4'>
@@ -266,15 +310,15 @@ export default function DestinationPage3 () {
               <p>Unique attractions and fun this city has to offer</p>
             </div>
             <div className='bg-red-300 m-4'>
-              <p>this is where the pic will go</p>
+            <img src={attraction1LocationUrl} />
               <p>{attraction1Location}</p>
             </div>
             <div className='bg-red-300 m-4'>
-              <p>this is where the pic will go</p>
+            <img src={attraction2LocationUrl} />
               <p>{attraction2Location}</p>
             </div>
             <div className='bg-red-300 m-4'>
-              <p>this is where the pic will go</p>
+            <img src={attraction3LocationUrl} />
               <p>{attraction3Location}</p>
             </div>
 

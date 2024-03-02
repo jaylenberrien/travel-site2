@@ -1,12 +1,34 @@
 import React from 'react'
 import { useState } from 'react'
+import axios from 'axios'
 
 export default function Register () {
 
     const [userDisplay, setUserDisplay] = useState('')
+    const [password, setPassword] = useState('')
     
     const handleChange = (value) => {
-        setUserDisplay(value)
+      setUserDisplay(value)
+    }
+
+
+    const handlePasswordChange = (e) =>{
+      setPassword(e.target.value)
+    }
+
+    const handleSubmit = async (e) =>{
+      // const userName = userDisplay
+      e.preventDefault();
+      try{
+        const response = await axios.post('http://localhost:5000/auth/signup',{
+          username: userDisplay,
+          password: password
+        })
+      } 
+      catch(error){
+        // console.log(error)
+      }
+      
     }
 
 
@@ -19,10 +41,10 @@ export default function Register () {
           <div className='m-auto bg-slate-300 p-10 flex-block text-right'> 
               <h2 className='text-center'>Register</h2>
               <br /><br />
-              <form action='' className='text-center'>
+              <form onSubmit={handleSubmit} className='text-center'>
                   Username: <input type='text' value={userDisplay} onChange={(e) => handleChange(e.target.value)} className=''/>
                   <br /><br />
-                  Password: <input type='password' className=''/>
+                  Password: <input type='password' value={password} onChange={handlePasswordChange} className=''/>
                   <br /><br />
                   <input type='submit' value='Submit' className='text-white bg-gray-500'/>
               </form>

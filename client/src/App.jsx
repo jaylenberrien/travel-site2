@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       {/* <Login /> */}
-      {/* <Register /> */}
+      <Register />
       <Routes>
 
         <Route path='/' element={<SearchPage />}/>
