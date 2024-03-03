@@ -48,7 +48,29 @@ const userSchema = new Schema ({
         })
         //we are adding salt which is extra characters before the hash, for more security
         return user
-    
+
+    }
+
+    // static login method 
+
+    userSchema.statics.login = async function(username, password){
+        if(!username || !password){
+            throw Error("all fields must be filled")
+        }
+
+        const user = await this.findOne({ username })
+
+        if(!user){
+            throw Error('Incorrect email')
+        }
+
+        const match = await bcrypt.compare(password, user.password)
+
+        if (!match){
+            throw Error('Incorrect password')
+        }
+
+        return user
     }
 
 
