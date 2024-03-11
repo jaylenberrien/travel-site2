@@ -27,16 +27,16 @@ const userSchema = new Schema ({
     userSchema.statics.signup = async function (username, password) {
         // validation
         if(!username || !password){
-            throw Error("all fields must be filled")
+            throw Error("All fields must be filled")
         }
         //you can check to see if something is a real email with the validator
         if(!validator.isStrongPassword(password)){
-            throw Error('password is weak')
+            throw Error('Password is weak')
         }
 
         const exists = await this.findOne({username})
         if (exists){
-            throw Error("user already exist")
+            throw Error("User already exist")
         }
 
         const salt = await bcrypt.genSalt(10)
@@ -55,13 +55,13 @@ const userSchema = new Schema ({
 
     userSchema.statics.login = async function(username, password){
         if(!username || !password){
-            throw Error("all fields must be filled")
+            throw Error("All fields must be filled")
         }
 
         const user = await this.findOne({ username })
 
         if(!user){
-            throw Error('Incorrect email')
+            throw Error('Incorrect username')
         }
 
         const match = await bcrypt.compare(password, user.password)

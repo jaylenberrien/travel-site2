@@ -22,7 +22,7 @@ const loginUser = async(req, res) =>{
         res.status(400).json({error: error.message})
     }
 
-    res.json({msg: "login user"})
+    // res.json({msg: "login user"})
 }
 
 //signup user\

@@ -1,14 +1,16 @@
 import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 export default function Login () {
 
+  const navigate = useNavigate()
   const [user, setUser] = useState('')
   const [password, setPassword] = useState('')
   
-  const handleChange = (e) => {
-    setUser(e.target.value)
+  const handleChange = (value) => {
+    setUser(value)
   }
 
 
@@ -28,7 +30,7 @@ export default function Login () {
     catch(error){
       // console.log(error)
     }
-    
+    navigate('/')
   }
 
   return (

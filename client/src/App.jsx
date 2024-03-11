@@ -13,16 +13,19 @@ function App() {
 
   return (
     <>
-      <Login />
-      <Register />
-      {/* <Routes>
+      {/* <Route path='/login' element={<Login/>}/> */}
+      {/* <Login/> */}
+      <Register/>
+      <Routes>
 
         <Route path='/' element={<SearchPage />}/>
-        <Route path='/:nickname/:id' element={<DestinationPage />}/>
-        <Route path='/account' element={<AccountPage/>}/>
-        <Route path='/about' element={<About/>}/>
+        {/* <Route path='/login' element={<Login/>}/> */}
+        {/* <Route path='/register' element={<Register/>}/> */}
+        {/* <Route path='/:nickname/:id' element={<DestinationPage />}/> */}
+        {/* <Route path='/account' element={<AccountPage/>}/> */}
+        {/* <Route path='/about' element={<About/>}/> */}
 
-      </Routes> */}
+      </Routes>
       {/* <DestinationPage /> */}
       
     
