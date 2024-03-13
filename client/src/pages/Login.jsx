@@ -2,12 +2,14 @@ import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { useLogin } from '../hooks/useLogin'
 
 export default function Login () {
 
   const navigate = useNavigate()
   const [user, setUser] = useState('')
   const [password, setPassword] = useState('')
+  const {login, error, isLoading} = useLogin()
   
   const handleChange = (value) => {
     setUser(value)

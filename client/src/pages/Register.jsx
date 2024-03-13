@@ -55,5 +55,3 @@ export default function Register () {
 }
 
 
-//the error isnt displaying figure out why, look at the error in the hook that we made and then see if it is 
-//being rendered right in the register component 
