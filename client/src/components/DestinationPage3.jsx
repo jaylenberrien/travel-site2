@@ -209,8 +209,9 @@ export default function DestinationPage3 () {
       // console.log(post)
       const response = await axios.post('http://localhost:5000/search/experience-pics', post)
       const attraction1LocationUrl = response.data.expPicData.data[0].images.small.url
-      setAttraction1LocationUrl(attraction1LocationUrl)
       console.log(attraction1LocationUrl)
+      setAttraction1LocationUrl(attraction1LocationUrl)
+      
     }
 
     const AttractionPics2 = async function(){
