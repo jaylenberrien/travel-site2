@@ -205,17 +205,12 @@ export default function DestinationPage3 () {
     }
 
     const AttractionPics = async function(){
-      try {
-        let post={locationId: attraction1LocationId}
-        // console.log(post)
-        const response = await axios.post('http://localhost:5000/search/experience-pics', post)
-        const attraction1LocationUrl = response.data.expPicData.data[0].images
-        setAttraction1LocationUrl(attraction1LocationUrl)
-        console.log(attraction1LocationUrl)
-     
-      } catch (error) {
-        console.log(error)
-      }
+      let post={locationId: attraction1LocationId}
+      // console.log(post)
+      const response = await axios.post('http://localhost:5000/search/experience-pics', post)
+      const attraction1LocationUrl = response.data.expPicData.data[0].images.small.url
+      setAttraction1LocationUrl(attraction1LocationUrl)
+      console.log(attraction1LocationUrl)
     }
 
     const AttractionPics2 = async function(){
@@ -264,7 +259,16 @@ export default function DestinationPage3 () {
    
     
     
-  })
+  },[id, nickname, latLong, 
+    rest1Location, rest1LocationId, rest1LocationUrl,
+    rest2Location, rest2LocationId, rest2LocationUrl,
+    rest3Location, rest3LocationId, rest3LocationUrl,
+    hotel1Location, hotel1LocationId, hotel1LocationUrl,
+    hotel2Location, hotel2LocationId, hotel2LocationUrl,
+    hotel3Location, hotel3LocationId, hotel3LocationUrl,
+    attraction1Location, attraction1LocationId, attraction1LocationUrl,
+    attraction2Location, attraction2LocationId, attraction2LocationUrl,
+    attraction3Location, attraction3LocationId, attraction3LocationUrl ])
 
   return (
     <div className='h-screen flex bg-green-800'>
