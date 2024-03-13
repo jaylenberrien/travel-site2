@@ -1,0 +1,21 @@
+.drop-menu{
+    display:none;
+    position: absolute;
+    left: 95%;
+    width: 100px;
+    text-align:center;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  
+    
+    
+
+}
+
+.drop-container{
+    background-color:black;
+    padding: 2px;
+}
+
+.drop-container:hover .drop-menu{
+    display:block;
+}
