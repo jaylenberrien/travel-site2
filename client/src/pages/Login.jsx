@@ -7,7 +7,7 @@ import { useLogin } from '../hooks/useLogin'
 export default function Login () {
 
   const navigate = useNavigate()
-  const [user, setUser] = useState('')
+  const [username, setUser] = useState('')
   const [password, setPassword] = useState('')
   const {login, error, isLoading} = useLogin()
   
@@ -21,18 +21,11 @@ export default function Login () {
   }
 
   const handleSubmit = async (e) =>{
-    // const userName = userDisplay
+
     e.preventDefault();
-    try{
-      const response = await axios.post('http://localhost:5000/auth/login',{
-        username: user,
-        password: password
-      })
-    } 
-    catch(error){
-      // console.log(error)
-    }
-    navigate('/')
+    await login(username,password)
+    console.log(error)
+    navigate('/account')
   }
 
   return (
@@ -45,13 +38,14 @@ export default function Login () {
               <h2 className='text-center'>Login</h2>
               <br /><br />
               <form onSubmit={handleSubmit} className='text-center'>
-                  Username: <input type='text' value={user} onChange={(e) => handleChange(e.target.value)} className=''/>
+                  Username: <input type='text' value={username} onChange={(e) => handleChange(e.target.value)} className=''/>
                   <br /><br />
                   Password: <input type='password' value={password} onChange={handlePasswordChange} className=''/>
                   <br /><br />
-                  <input type='submit' value='Submit' className='text-white bg-gray-500'/>
+                  <input disabled={isLoading} type='submit' value='Submit' className='text-white bg-gray-500'/>
               </form>
               <br />
+              {error && <div className='error'>{error}</div>}
               <a href='' className='underline decoration-solid text-sm'>Click here to register</a>
           </div>
       </div>

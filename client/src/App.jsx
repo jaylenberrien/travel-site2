@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       {/* <Route path='/login' element={<Login/>}/> */}
-      {/* <Login/> */}
+      <Login/>
       <Register/>
       <Routes>
 
