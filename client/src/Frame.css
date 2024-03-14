@@ -1,0 +1,17 @@
+.frame{
+    background-color: red;
+    margin:4px;
+}
+
+.icon{
+    height:20px;
+    width:20px; 
+    position: absolute;
+    /* display: none; */
+}
+
+.frame:hover .frame.icon{
+    diplay: block;
+    background-color:green;
+}
+

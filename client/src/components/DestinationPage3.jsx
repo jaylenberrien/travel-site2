@@ -273,64 +273,74 @@ export default function DestinationPage3 () {
 
   return (
     <div className='h-screen flex bg-green-800'>
-      <div>
-        <div className='my-14'>Experience {nickname} </div>
-        <div className='grid grid-cols-4'>
+        <div>
+          <div className='my-14'>Experience {nickname} </div>
+          <div className='grid grid-cols-4'>
+            <div className=' m-4'>
+              <p>Restaurants</p>
+              <p>Indulge in some of the food to to eat in {nickname}</p>
+            </div>
+            <div class='frame' className='bg-red-300 m-4'>
+              {/* <img src='./imgs/add.png' /> */}
+              <img class='icon' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' className='h-6 w-6'/>
+              <img src={rest1LocationUrl} />
+              <p>{rest1Location}</p>
+            </div>
+            <div class='frame' className='bg-red-300 m-4'>
+              <img class='icon' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' className='h-6 w-6'/>
+              <img src={rest2LocationUrl} />
+              <p>{rest2Location}</p>
+            </div>
+            <div class='frame' className='bg-red-300 m-4'>
+              <img class='icon' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' className='h-6 w-6'/>
+              <img src={rest3LocationUrl} />
+              <p>{rest3Location}</p>
+            </div>
+          </div>
+          <div className='grid grid-cols-4 grid-rows-2'>
           <div className=' m-4'>
-            <p>Restaurants</p>
-            <p>Indulge in some of the food to to eat in {nickname}</p>
+            <p>Places to stay</p>
+            <p>Places to stay during your trip</p>
           </div>
-          <div className='bg-red-300 m-4'>
-            <img src={rest1LocationUrl} />
-            <p>{rest1Location}</p>
+          <div class='frame' className='bg-red-300 m-4'>
+            <img class='icon' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' className='h-6 w-6'/>
+            <img src={hotel1LocationUrl} />
+            <p>{hotel1Location}</p>
           </div>
-          <div className='bg-red-300 m-4'>
-            <img src={rest2LocationUrl} />
-            <p>{rest2Location}</p>
+          <div class='frame' className='bg-red-300 m-4'>
+            <img class='icon' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' className='h-6 w-6'/>
+            <img src={hotel2LocationUrl} />
+            <p>{hotel2Location}</p>
           </div>
-          <div className='bg-red-300 m-4'>
-            <img src={rest3LocationUrl} />
-            <p>{rest3Location}</p>
+          <div class='frame' className='bg-red-300 m-4'>
+            <img class='icon' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' className='h-6 w-6'/>
+            <img src={hotel3LocationUrl} />
+            <p>{hotel3Location}</p>
           </div>
-        </div>
-        <div className='grid grid-cols-4 grid-rows-2'>
-            <div className=' m-4'>
-              <p>Places to stay</p>
-              <p>Places to stay during your trip</p>
-            </div>
-            <div className='bg-red-300 m-4'>
-              <img src={hotel1LocationUrl} />
-              <p>{hotel1Location}</p>
-            </div>
-            <div className='bg-red-300 m-4'>
-              <img src={hotel2LocationUrl} />
-              <p>{hotel2Location}</p>
-            </div>
-            <div className='bg-red-300 m-4'>
-              <img src={hotel3LocationUrl} />
-              <p>{hotel3Location}</p>
-            </div>
-            <div className=' m-4'>
-              <p>Fun attractions</p>
-              <p>Unique attractions and fun this city has to offer</p>
-            </div>
-            <div className='bg-red-300 m-4'>
+          <div className=' m-4'>
+            <p>Fun attractions</p>
+            <p>Unique attractions and fun this city has to offer</p>
+          </div>
+          <div class='frame' className='bg-red-300 m-4'>
+            <img class='icon' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' className='h-6 w-6'/>
             <img src={attraction1LocationUrl} />
-              <p>{attraction1Location}</p>
-            </div>
-            <div className='bg-red-300 m-4'>
+            <p>{attraction1Location}</p>
+          </div>
+          <div class='frame' className='bg-red-300 m-4'>
+            <img class='icon' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' className='h-6 w-6'/>
             <img src={attraction2LocationUrl} />
-              <p>{attraction2Location}</p>
-            </div>
-            <div className='bg-red-300 m-4'>
+            <p>{attraction2Location}</p>
+          </div>
+          <div class='frame' className='bg-red-300 m-4'>
+            <img class='icon' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' className='h-6 w-6'/>
             <img src={attraction3LocationUrl} />
-              <p>{attraction3Location}</p>
-            </div>
+            <p>{attraction3Location}</p>
+          </div>
 
-      </div>
+        </div>
+          
         
-      
-    </div>
+      </div>
     </div>
 
   )

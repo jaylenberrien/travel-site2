@@ -4,6 +4,7 @@ import { BrowserRouter as Router} from 'react-router-dom'
 import App from './App.jsx'
 import './App.css'
 import './Nav.css'
+import './Frame.css'
 import { AuthContextProvider } from './context/AuthContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
