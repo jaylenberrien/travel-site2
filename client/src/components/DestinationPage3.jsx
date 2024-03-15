@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios';
 
 
+
 export default function DestinationPage3 () {
   const { id } = useParams();
   const { nickname } = useParams()
@@ -40,236 +41,236 @@ export default function DestinationPage3 () {
   const [attraction3LocationUrl, setAttraction3LocationUrl] = useState()
   const [attraction3LocationId, setAttraction3LocationId] = useState()
 
-  useEffect(()=>{
-    const Experience = async function(){
-      try {
-        let post = {
-          locationId: id,
-        }
-        const response = await axios.post("http://localhost:5000/search/location", post)
-        const latitudeData = response.data.locationData.latitude
-        const longitudeData = response.data.locationData.longitude 
-        setLatLong(latitudeData + "," + longitudeData)
-        // console.log(latLong)
-      } catch (error) {
-        console.log(error)
-      }
-    }
+  // useEffect(()=>{
+  //   const Experience = async function(){
+  //     try {
+  //       let post = {
+  //         locationId: id,
+  //       }
+  //       const response = await axios.post("http://localhost:5000/search/location", post)
+  //       const latitudeData = response.data.locationData.latitude
+  //       const longitudeData = response.data.locationData.longitude 
+  //       setLatLong(latitudeData + "," + longitudeData)
+  //       // console.log(latLong)
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
+  //   }
 
-    const Experience2 = async function(){
-      try {
-        let post = {
-          locationInfo: latLong
-        }
-        const response = await axios.post('http://localhost:5000/search/restaurants', post)
+  //   const Experience2 = async function(){
+  //     try {
+  //       let post = {
+  //         locationInfo: latLong
+  //       }
+  //       const response = await axios.post('http://localhost:5000/search/restaurants', post)
 
-        const restaurant1Name = response.data.restaurantData.data[0].name
-        setRest1Location(restaurant1Name)
-        const restaurant1Id = response.data.restaurantData.data[0].location_id
-        setRest1LocationId(restaurant1Id)
+  //       const restaurant1Name = response.data.restaurantData.data[0].name
+  //       setRest1Location(restaurant1Name)
+  //       const restaurant1Id = response.data.restaurantData.data[0].location_id
+  //       setRest1LocationId(restaurant1Id)
 
-        const restaurant2Name = response.data.restaurantData.data[1].name
-        setRest2Location(restaurant2Name)
-        const restaurant2Id = response.data.restaurantData.data[1].location_id
-        setRest2LocationId(restaurant2Id)
+  //       const restaurant2Name = response.data.restaurantData.data[1].name
+  //       setRest2Location(restaurant2Name)
+  //       const restaurant2Id = response.data.restaurantData.data[1].location_id
+  //       setRest2LocationId(restaurant2Id)
 
-        const restaurant3Name = response.data.restaurantData.data[2].name
-        setRest3Location(restaurant3Name)
-        const restaurant3Id = response.data.restaurantData.data[2].location_id
-        setRest3LocationId(restaurant3Id)
-      } catch (error) {
-        console.log(error)
-      }
+  //       const restaurant3Name = response.data.restaurantData.data[2].name
+  //       setRest3Location(restaurant3Name)
+  //       const restaurant3Id = response.data.restaurantData.data[2].location_id
+  //       setRest3LocationId(restaurant3Id)
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
 
-    }
+  //   }
 
-    const RestPics = async function(){
-      try {
-        let post={locationId: rest1LocationId}
-        // console.log(post)
-        const response1 = await axios.post('http://localhost:5000/search/experience-pics', post)
-        const rest1PicUrl = response1.data.expPicData.data[0].images.small.url
-        setRest1LocationUrl(rest1PicUrl)
+  //   const RestPics = async function(){
+  //     try {
+  //       let post={locationId: rest1LocationId}
+  //       // console.log(post)
+  //       const response1 = await axios.post('http://localhost:5000/search/experience-pics', post)
+  //       const rest1PicUrl = response1.data.expPicData.data[0].images.small.url
+  //       setRest1LocationUrl(rest1PicUrl)
      
-      } catch (error) {
-        console.log(error)
-      }
-    }
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
+  //   }
 
-    const RestPics2 = async function(){
-      let post2={locationId: rest2LocationId}
-      // console.log(post2)
-      const response2 = await axios.post('http://localhost:5000/search/experience-pics', post2)
-      const rest2PicUrl = response2.data.expPicData.data[0].images.small.url
-      setRest2LocationUrl(rest2PicUrl)
+  //   const RestPics2 = async function(){
+  //     let post2={locationId: rest2LocationId}
+  //     // console.log(post2)
+  //     const response2 = await axios.post('http://localhost:5000/search/experience-pics', post2)
+  //     const rest2PicUrl = response2.data.expPicData.data[0].images.small.url
+  //     setRest2LocationUrl(rest2PicUrl)
      
 
-    }
+  //   }
 
-    const RestPics3 = async function(){
-      let post3={locationId: rest3LocationId}
-      // console.log(post3)
-      const response3 = await axios.post('http://localhost:5000/search/experience-pics', post3)
-      const rest3PicUrl = response3.data.expPicData.data[0].images.small.url
-      setRest3LocationUrl(rest3PicUrl)
+  //   const RestPics3 = async function(){
+  //     let post3={locationId: rest3LocationId}
+  //     // console.log(post3)
+  //     const response3 = await axios.post('http://localhost:5000/search/experience-pics', post3)
+  //     const rest3PicUrl = response3.data.expPicData.data[0].images.small.url
+  //     setRest3LocationUrl(rest3PicUrl)
 
-    }
+  //   }
 
-    const Experience4 = async function(){
-      try {
-        let post = {
-          locationInfo: latLong
-        }
+  //   const Experience4 = async function(){
+  //     try {
+  //       let post = {
+  //         locationInfo: latLong
+  //       }
         
-        const response = await axios.post('http://localhost:5000/search/hotels', post)
+  //       const response = await axios.post('http://localhost:5000/search/hotels', post)
 
-        const hotel1Name = response.data.hotelsData.data[0].name
-        setHotel1Location(hotel1Name)
-        const hotel1Id = response.data.hotelsData.data[0].location_id
-        setHotel1LocationId(hotel1Id)
+  //       const hotel1Name = response.data.hotelsData.data[0].name
+  //       setHotel1Location(hotel1Name)
+  //       const hotel1Id = response.data.hotelsData.data[0].location_id
+  //       setHotel1LocationId(hotel1Id)
 
-        const hotel2Name = response.data.hotelsData.data[1].name
-        setHotel2Location(hotel2Name)
-        const hotel2Id = response.data.hotelsData.data[1].location_id
-        setHotel2LocationId(hotel2Id)
+  //       const hotel2Name = response.data.hotelsData.data[1].name
+  //       setHotel2Location(hotel2Name)
+  //       const hotel2Id = response.data.hotelsData.data[1].location_id
+  //       setHotel2LocationId(hotel2Id)
 
-        const hotel3Name = response.data.hotelsData.data[2].name
-        setHotel3Location(hotel3Name)
-        const hotel3Id = response.data.hotelsData.data[2].location_id
-        setHotel3LocationId(hotel3Id)
-      } catch (error) {
-        console.log(error)
-      }
+  //       const hotel3Name = response.data.hotelsData.data[2].name
+  //       setHotel3Location(hotel3Name)
+  //       const hotel3Id = response.data.hotelsData.data[2].location_id
+  //       setHotel3LocationId(hotel3Id)
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
 
-    }
+  //   }
 
-    const HotelPics = async function(){
-      try {
-        let post={locationId: hotel1LocationId}
-        // console.log(post)
-        const response = await axios.post('http://localhost:5000/search/experience-pics', post)
-        const hotel1PicUrl = response.data.expPicData.data[0].images.small.url
-        setHotel1LocationUrl(hotel1PicUrl)
+  //   const HotelPics = async function(){
+  //     try {
+  //       let post={locationId: hotel1LocationId}
+  //       // console.log(post)
+  //       const response = await axios.post('http://localhost:5000/search/experience-pics', post)
+  //       const hotel1PicUrl = response.data.expPicData.data[0].images.small.url
+  //       setHotel1LocationUrl(hotel1PicUrl)
      
-      } catch (error) {
-        console.log(error)
-      }
-    }
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
+  //   }
 
-    const HotelPics2 = async function(){
-      let post2={locationId: hotel2LocationId}
-      // console.log(post2)
-      const response2 = await axios.post('http://localhost:5000/search/experience-pics', post2)
-      const hotel2PicUrl = response2.data.expPicData.data[0].images.small.url
-      setHotel2LocationUrl(hotel2PicUrl)
+  //   const HotelPics2 = async function(){
+  //     let post2={locationId: hotel2LocationId}
+  //     // console.log(post2)
+  //     const response2 = await axios.post('http://localhost:5000/search/experience-pics', post2)
+  //     const hotel2PicUrl = response2.data.expPicData.data[0].images.small.url
+  //     setHotel2LocationUrl(hotel2PicUrl)
      
 
-    }
+  //   }
 
-    const HotelPics3 = async function(){
-      let post3={locationId: hotel3LocationId}
-      // console.log(post3)
-      const response3 = await axios.post('http://localhost:5000/search/experience-pics', post3)
-      const hotel3PicUrl = response3.data.expPicData.data[0].images.small.url
-      setHotel3LocationUrl(hotel3PicUrl)
+  //   const HotelPics3 = async function(){
+  //     let post3={locationId: hotel3LocationId}
+  //     // console.log(post3)
+  //     const response3 = await axios.post('http://localhost:5000/search/experience-pics', post3)
+  //     const hotel3PicUrl = response3.data.expPicData.data[0].images.small.url
+  //     setHotel3LocationUrl(hotel3PicUrl)
 
 
-    }
+  //   }
 
-    const Experience6 = async function(){
-      try {
-        let post = {
-          locationInfo: latLong
-        }
+  //   const Experience6 = async function(){
+  //     try {
+  //       let post = {
+  //         locationInfo: latLong
+  //       }
         
-        const response = await axios.post('http://localhost:5000/search/attractions', post)
+  //       const response = await axios.post('http://localhost:5000/search/attractions', post)
 
-        const attraction1Name = response.data.attractionsData.data[0].name
-        setAttraction1Location(attraction1Name)
-        const attraction1Id = response.data.attractionsData.data[0].location_id
-        setAttraction1LocationId(attraction1Id)
+  //       const attraction1Name = response.data.attractionsData.data[0].name
+  //       setAttraction1Location(attraction1Name)
+  //       const attraction1Id = response.data.attractionsData.data[0].location_id
+  //       setAttraction1LocationId(attraction1Id)
 
-        const attraction2Name = response.data.attractionsData.data[1].name
-        setAttraction2Location(attraction2Name)
-        const attraction2Id = response.data.attractionsData.data[1].location_id
-        setAttraction2LocationId(attraction2Id)
+  //       const attraction2Name = response.data.attractionsData.data[1].name
+  //       setAttraction2Location(attraction2Name)
+  //       const attraction2Id = response.data.attractionsData.data[1].location_id
+  //       setAttraction2LocationId(attraction2Id)
 
-        const attraction3Name = response.data.attractionsData.data[2].name
-        setAttraction3Location(attraction3Name)
-        const attraction3Id = response.data.attractionsData.data[2].location_id
-        setAttraction3LocationId(attraction3Id)
-      } catch (error) {
-        console.log(error)
-      }
+  //       const attraction3Name = response.data.attractionsData.data[2].name
+  //       setAttraction3Location(attraction3Name)
+  //       const attraction3Id = response.data.attractionsData.data[2].location_id
+  //       setAttraction3LocationId(attraction3Id)
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
 
-    }
+  //   }
 
-    const AttractionPics = async function(){
-      let post={locationId: attraction1LocationId}
-      // console.log(post)
-      const response = await axios.post('http://localhost:5000/search/experience-pics', post)
-      const attraction1LocationUrl = response.data.expPicData.data[0].images.small.url
-      console.log(attraction1LocationUrl)
-      setAttraction1LocationUrl(attraction1LocationUrl)
+  //   const AttractionPics = async function(){
+  //     let post={locationId: attraction1LocationId}
+  //     // console.log(post)
+  //     const response = await axios.post('http://localhost:5000/search/experience-pics', post)
+  //     const attraction1LocationUrl = response.data.expPicData.data[0].images.small.url
+  //     console.log(attraction1LocationUrl)
+  //     setAttraction1LocationUrl(attraction1LocationUrl)
       
-    }
+  //   }
 
-    const AttractionPics2 = async function(){
-      let post2={locationId: attraction2LocationId}
-      // console.log(post2)
-      const response2 = await axios.post('http://localhost:5000/search/experience-pics', post2)
-      const attraction2LocationUrl = response2.data.expPicData.data[0].images.small.url
-      console.log(attraction2LocationUrl)
-      setAttraction2LocationUrl(attraction2LocationUrl)
+  //   const AttractionPics2 = async function(){
+  //     let post2={locationId: attraction2LocationId}
+  //     // console.log(post2)
+  //     const response2 = await axios.post('http://localhost:5000/search/experience-pics', post2)
+  //     const attraction2LocationUrl = response2.data.expPicData.data[0].images.small.url
+  //     console.log(attraction2LocationUrl)
+  //     setAttraction2LocationUrl(attraction2LocationUrl)
      
 
-    }
+  //   }
 
-    const AttractionPics3 = async function(){
-      let post3={locationId: attraction3LocationId}
-      // console.log(post3)
-      const response3 = await axios.post('http://localhost:5000/search/experience-pics', post3)
-      const attraction3LocationUrl = response3.data.expPicData.data[0].images.small.url
-      console.log(attraction3LocationUrl)
-      setAttraction3LocationUrl(attraction3LocationUrl)
+  //   const AttractionPics3 = async function(){
+  //     let post3={locationId: attraction3LocationId}
+  //     // console.log(post3)
+  //     const response3 = await axios.post('http://localhost:5000/search/experience-pics', post3)
+  //     const attraction3LocationUrl = response3.data.expPicData.data[0].images.small.url
+  //     console.log(attraction3LocationUrl)
+  //     setAttraction3LocationUrl(attraction3LocationUrl)
 
 
-    }
+  //   }
 
-    Experience()
-    Experience2()
-    Experience4()
-    Experience6()
+  //   Experience()
+  //   Experience2()
+  //   Experience4()
+  //   Experience6()
 
-    RestPics()
-    RestPics2()
-    RestPics3()
+  //   RestPics()
+  //   RestPics2()
+  //   RestPics3()
     
   
-    HotelPics()
-    HotelPics2()
-    HotelPics3()
+  //   HotelPics()
+  //   HotelPics2()
+  //   HotelPics3()
 
     
-    AttractionPics()
-    AttractionPics2()
-    AttractionPics3()
+  //   AttractionPics()
+  //   AttractionPics2()
+  //   AttractionPics3()
     
 
     
    
     
     
-  },[id, nickname, latLong, 
-    rest1Location, rest1LocationId, rest1LocationUrl,
-    rest2Location, rest2LocationId, rest2LocationUrl,
-    rest3Location, rest3LocationId, rest3LocationUrl,
-    hotel1Location, hotel1LocationId, hotel1LocationUrl,
-    hotel2Location, hotel2LocationId, hotel2LocationUrl,
-    hotel3Location, hotel3LocationId, hotel3LocationUrl,
-    attraction1Location, attraction1LocationId, attraction1LocationUrl,
-    attraction2Location, attraction2LocationId, attraction2LocationUrl,
-    attraction3Location, attraction3LocationId, attraction3LocationUrl ])
+  // },[id, nickname, latLong, 
+  //   rest1Location, rest1LocationId, rest1LocationUrl,
+  //   rest2Location, rest2LocationId, rest2LocationUrl,
+  //   rest3Location, rest3LocationId, rest3LocationUrl,
+  //   hotel1Location, hotel1LocationId, hotel1LocationUrl,
+  //   hotel2Location, hotel2LocationId, hotel2LocationUrl,
+  //   hotel3Location, hotel3LocationId, hotel3LocationUrl,
+  //   attraction1Location, attraction1LocationId, attraction1LocationUrl,
+  //   attraction2Location, attraction2LocationId, attraction2LocationUrl,
+  //   attraction3Location, attraction3LocationId, attraction3LocationUrl ])
 
   return (
     <div className='h-screen flex bg-green-800'>
@@ -280,19 +281,19 @@ export default function DestinationPage3 () {
               <p>Restaurants</p>
               <p>Indulge in some of the food to to eat in {nickname}</p>
             </div>
-            <div class='frame' className='bg-red-300 m-4'>
+            <div class='frame icon-func' >
               {/* <img src='./imgs/add.png' /> */}
-              <img class='icon' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' className='h-6 w-6'/>
+              <img onClick={()=> console.log('it works')} class='icon icon-func' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' />
               <img src={rest1LocationUrl} />
               <p>{rest1Location}</p>
             </div>
-            <div class='frame' className='bg-red-300 m-4'>
-              <img class='icon' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' className='h-6 w-6'/>
+            <div class='frame icon-func' >
+              <img onClick={()=> console.log('it works')} class='icon icon-func' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' />
               <img src={rest2LocationUrl} />
               <p>{rest2Location}</p>
             </div>
-            <div class='frame' className='bg-red-300 m-4'>
-              <img class='icon' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' className='h-6 w-6'/>
+            <div class='frame icon-func' >
+              <img onClick={()=> console.log('it works')} class='icon icon-func' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' />
               <img src={rest3LocationUrl} />
               <p>{rest3Location}</p>
             </div>
@@ -302,18 +303,18 @@ export default function DestinationPage3 () {
             <p>Places to stay</p>
             <p>Places to stay during your trip</p>
           </div>
-          <div class='frame' className='bg-red-300 m-4'>
-            <img class='icon' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' className='h-6 w-6'/>
+          <div class='frame icon-func' >
+            <img class='icon icon-func' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' />
             <img src={hotel1LocationUrl} />
             <p>{hotel1Location}</p>
           </div>
-          <div class='frame' className='bg-red-300 m-4'>
-            <img class='icon' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' className='h-6 w-6'/>
+          <div class='frame icon-func' >
+            <img class='icon icon-func' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' />
             <img src={hotel2LocationUrl} />
             <p>{hotel2Location}</p>
           </div>
-          <div class='frame' className='bg-red-300 m-4'>
-            <img class='icon' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' className='h-6 w-6'/>
+          <div class='frame icon-func' >
+            <img class='icon icon-func' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' />
             <img src={hotel3LocationUrl} />
             <p>{hotel3Location}</p>
           </div>
@@ -321,18 +322,18 @@ export default function DestinationPage3 () {
             <p>Fun attractions</p>
             <p>Unique attractions and fun this city has to offer</p>
           </div>
-          <div class='frame' className='bg-red-300 m-4'>
-            <img class='icon' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' className='h-6 w-6'/>
+          <div class='frame icon-func' >
+            <img class='icon icon-func' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' />
             <img src={attraction1LocationUrl} />
             <p>{attraction1Location}</p>
           </div>
-          <div class='frame' className='bg-red-300 m-4'>
-            <img class='icon' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' className='h-6 w-6'/>
+          <div class='frame icon-func' >
+            <img class='icon icon-func' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' />
             <img src={attraction2LocationUrl} />
             <p>{attraction2Location}</p>
           </div>
-          <div class='frame' className='bg-red-300 m-4'>
-            <img class='icon' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' className='h-6 w-6'/>
+          <div class='frame icon-func' >
+            <img class='icon icon-func' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' />
             <img src={attraction3LocationUrl} />
             <p>{attraction3Location}</p>
           </div>

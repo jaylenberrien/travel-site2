@@ -13,7 +13,7 @@
 
 .drop-container{
     background-color:black;
-    padding: 2px;
+    padding: 2px; 
 }
 
 .drop-container:hover .drop-menu{

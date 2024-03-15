@@ -1,5 +1,5 @@
 .frame{
-    background-color: red;
+    background-color: purple;
     margin:4px;
 }
 
@@ -7,11 +7,10 @@
     height:20px;
     width:20px; 
     position: absolute;
-    /* display: none; */
+    display: none;
 }
 
-.frame:hover .frame.icon{
-    diplay: block;
-    background-color:green;
-}
 
+.icon-func:hover .icon{
+    display:block;
+}
