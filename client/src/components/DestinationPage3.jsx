@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { useState } from 'react';
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
+import { TripEditor } from './TripEditor';
 
 
 
@@ -274,6 +275,7 @@ export default function DestinationPage3 () {
 
   return (
     <div className='h-screen flex bg-green-800'>
+        <TripEditor />
         <div>
           <div className='my-14'>Experience {nickname} </div>
           <div className='grid grid-cols-4'>
