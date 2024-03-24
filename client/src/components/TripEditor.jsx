@@ -1,6 +1,6 @@
-// 
 
 import { OldTrip } from "./OldTrip";
+import { NewTrip } from "./NewTrip";
 import { useState } from "react";
 
 export function TripEditor({ showSelector, setShowComponent }) {
@@ -30,9 +30,10 @@ export function TripEditor({ showSelector, setShowComponent }) {
         </div>
         {showTrips && <OldTrip showTrips={showTrips} setShowTrips={setShowTrips} />}
         <div>or</div>
-        <div className=" bg-red-400 mt-4 h-24 w-60 mx-auto flex">
+        <div onClick={makeTrip} className=" bg-red-400 mt-4 h-24 w-60 mx-auto flex">
           <div className="mx-auto my-auto">Create new trip</div>
         </div>
+        {createTrip && < NewTrip createTrip={createTrip} setCreateTrip={setCreateTrip}/>}
       </div>
       <div onClick={handleCancelClick} className="mb-2 bg-red-400 w-12 mx-auto">
         Cancel

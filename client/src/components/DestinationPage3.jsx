@@ -56,7 +56,7 @@ export default function DestinationPage3 () {
     <> 
       {/* <TripEditor /> */}
       {/* < OldTrip /> */}
-      <NewTrip />
+      {/* <NewTrip /> */}
       <div className='h-screen flex bg-green-800'>
         <div>
           <div className='my-14'>Experience {nickname} </div>

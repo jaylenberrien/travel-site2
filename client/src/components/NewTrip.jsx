@@ -1,8 +1,11 @@
 import { useState } from "react"
 
 
-export function NewTrip (){
+export function NewTrip ({ createTrip ,setCreateTrip}){
 
+    const remove = ()=>{
+        setCreateTrip(false)
+    }
 
     
     return(
@@ -16,7 +19,7 @@ export function NewTrip (){
                 <div>Description:</div>
                 <input type="text" className="w-64 h-32"/>
             </form>
-            <div className="bg-red-400 w-12 mx-auto">Cancel</div>
+            <div onClick={remove} className="bg-red-400 w-12 mx-auto">Cancel</div>
         </div>
     )
 }
