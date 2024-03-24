@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import { TripEditor } from './TripEditor';
 import { OldTrip } from './OldTrip'
+import { NewTrip } from './NewTrip'
 
 
 
@@ -55,6 +56,7 @@ export default function DestinationPage3 () {
     <> 
       {/* <TripEditor /> */}
       {/* < OldTrip /> */}
+      <NewTrip />
       <div className='h-screen flex bg-green-800'>
         <div>
           <div className='my-14'>Experience {nickname} </div>
