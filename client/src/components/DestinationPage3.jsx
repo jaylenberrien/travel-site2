@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import { TripEditor } from './TripEditor';
+import { OldTrip } from './OldTrip'
 
 
 
@@ -48,9 +49,12 @@ export default function DestinationPage3 () {
     setShowComponent(true);
   }
 
+  
+
   return (
     <> 
       {/* <TripEditor /> */}
+      {/* < OldTrip /> */}
       <div className='h-screen flex bg-green-800'>
         <div>
           <div className='my-14'>Experience {nickname} </div>
