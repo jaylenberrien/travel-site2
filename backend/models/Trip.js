@@ -21,12 +21,12 @@ tripSchema.statics.createNewTrip = async function (name, description){
         throw Error("Name field must be filled")
     }
 
-    const trip = await this.create({
+    const Trip = await this.create({
         name,
         description
     })
 
-    return trip
+    return Trip
 }
 
 const Trip = mongoose.model('Trip', tripSchema)

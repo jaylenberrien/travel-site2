@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const initerarySchema = new Schema({
+const itinerarySchema = new Schema({
     type: mongoose.Types.ObjectId,
 }, {timestamps: true})
 
-const Initerary = mongoose.model("itinerary", initerarySchema)
+const Itinerary = mongoose.model("itinerary", itinerarySchema)
 
-module.exports = Initerary
+module.exports = Itinerary

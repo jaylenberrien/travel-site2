@@ -14,9 +14,9 @@ const userSchema = new Schema ({
         type: String,
         required: true
     },
-    trip:[{
+    Trip:[{
         type: mongoose.Types.ObjectId,
-        ref: 'trip'
+        ref: 'Trip'
     }]
     }, {timestamps: true})
 
