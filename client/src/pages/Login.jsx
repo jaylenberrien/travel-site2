@@ -25,7 +25,7 @@ export default function Login () {
     e.preventDefault();
     await login(username,password)
     console.log(error)
-    navigate('/account')
+    // navigate('/account')
   }
 
   return (
