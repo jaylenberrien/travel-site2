@@ -12,7 +12,7 @@ export const useSignup = () =>{
         setError(null)
 
         const body = {
-            username,
+            username, 
             password
         }
          

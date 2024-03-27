@@ -14,9 +14,9 @@ const userSchema = new Schema ({
         type: String,
         required: true
     },
-    trip:[{
+    Trip:[{
         type: mongoose.Types.ObjectId,
-        ref: 'trip'
+        ref: 'Trip'
     }]
     }, {timestamps: true})
 
@@ -74,6 +74,6 @@ const userSchema = new Schema ({
     }
 
 
-    const User = mongoose.model('User', userSchema)
+    const User = mongoose.model('users', userSchema)
 
     module.exports = User;

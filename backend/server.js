@@ -36,6 +36,7 @@ app.use(methodOverride('_method'))
 
 app.use('/search', apiRoutes)
 app.use('/auth', authRoutes)
+app.use('/trip', tripRoutes)
 
 // routes
 app.get('/', async (req, res)=>{
