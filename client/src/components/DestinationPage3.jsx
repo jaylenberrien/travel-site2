@@ -6,6 +6,7 @@ import axios from 'axios';
 import { TripEditor } from './TripEditor';
 import { OldTrip } from './OldTrip'
 import { NewTrip } from './NewTrip'
+// import async from 'async.js'
 
 
 
@@ -54,190 +55,194 @@ export default function DestinationPage3 () {
 
   const Experience = async function(){
     try {
-      let post = {
-        locationId: id,
-      }
+      let post = {locationId: id}
       const response = await axios.post("http://localhost:5000/search/location", post)
-      const latitudeData = response.data.locationData.latitude
-      const longitudeData = response.data.locationData.longitude 
-      setLatLong(latitudeData + "," + longitudeData)
-      console.log(latLong)
+      const latitude = response.data.locationData.latitude;
+      const longitude = response.data.locationData.longitude;
+      setLatLong(latitude + "," + longitude)
     } catch (error) {
       console.log(error)
     }
   }
-  const Experience2 = async function(){
-    try {
-      let post = {
-        locationInfo: latLong
-      }
-      const response = await axios.post('http://localhost:5000/search/restaurants', post)
-      const restaurant1Name = response.data.restaurantData.data[0].name
-      setRest1Location(restaurant1Name)
-      const restaurant1Id = response.data.restaurantData.data[0].location_id
-      setRest1LocationId(restaurant1Id)
-      const restaurant2Name = response.data.restaurantData.data[1].name
-      setRest2Location(restaurant2Name)
-      const restaurant2Id = response.data.restaurantData.data[1].location_id
-      setRest2LocationId(restaurant2Id)
-      const restaurant3Name = response.data.restaurantData.data[2].name
-      setRest3Location(restaurant3Name)
-      const restaurant3Id = response.data.restaurantData.data[2].location_id
-      setRest3LocationId(restaurant3Id)
-    } catch (error) {
-      console.log(error)
-    }
+
+  const Experience13 = async function(){ 
+    let post = {locationInfo: latLong}
+    const response = await axios.post('http://localhost:5000/search/restaurants', post)
+    setRest1Location(response.data.restaurantData.data[0].name)
+    setRest1LocationId(response.data.restaurantData.data[0].location_id)
   }
+
+
   const RestPics = async function(){
-    try {
-      let post={locationId: rest1LocationId}
-      // console.log(post)
-      const response1 = await axios.post('http://localhost:5000/search/experience-pics', post)
-      const rest1PicUrl = response1.data.expPicData.data[0].images.small.url
-      setRest1LocationUrl(rest1PicUrl)
-   
-    } catch (error) {
-      console.log(error)
-    }
+    let post2= {locationId: rest1LocationId}
+    const response1 = await axios.post('http://localhost:5000/search/experience-pics', post2)
+    setRest1LocationUrl(response1.data.expPicData.data[0].images.small.url)
   }
+
+
+
+  useEffect(() =>{
+    Experience()
+    Experience13()
+    RestPics()
+  },[id, latLong, rest1Location, rest1LocationId, rest1LocationUrl])
+
+
+  const Experience14 = async function(){
+    let post = {locationInfo: latLong}
+    const response = await axios.post('http://localhost:5000/search/restaurants', post)
+    setRest2Location(response.data.restaurantData.data[1].name)
+    setRest2LocationId(response.data.restaurantData.data[1].location_id)
+  }
+
+
   const RestPics2 = async function(){
     let post2={locationId: rest2LocationId}
-    // console.log(post2)
     const response2 = await axios.post('http://localhost:5000/search/experience-pics', post2)
-    const rest2PicUrl = response2.data.expPicData.data[0].images.small.url
-    setRest2LocationUrl(rest2PicUrl)
-   
+    setRest2LocationUrl(response2.data.expPicData.data[0].images.small.url)      
   }
+
+  useEffect(() =>{
+    Experience()
+    Experience14()
+    RestPics2()
+  },[id, latLong, rest2Location, rest2LocationId, rest2LocationUrl])
+
+  const Experience15 = async function(){
+    let post = {locationInfo: latLong}
+    const response = await axios.post('http://localhost:5000/search/restaurants', post)
+    setRest3Location(response.data.restaurantData.data[2].name)
+    setRest3LocationId(response.data.restaurantData.data[2].location_id)
+  }
+
   const RestPics3 = async function(){
     let post3={locationId: rest3LocationId}
-    // console.log(post3)
     const response3 = await axios.post('http://localhost:5000/search/experience-pics', post3)
-    const rest3PicUrl = response3.data.expPicData.data[0].images.small.url
-    setRest3LocationUrl(rest3PicUrl)
+    setRest3LocationUrl(response3.data.expPicData.data[0].images.small.url)    
   }
-  const Experience4 = async function(){
-    try {
-      let post = {
-        locationInfo: latLong
-      }
-      
-      const response = await axios.post('http://localhost:5000/search/hotels', post)
-      const hotel1Name = response.data.hotelsData.data[0].name
-      setHotel1Location(hotel1Name)
-      const hotel1Id = response.data.hotelsData.data[0].location_id
-      setHotel1LocationId(hotel1Id)
-      const hotel2Name = response.data.hotelsData.data[1].name
-      setHotel2Location(hotel2Name)
-      const hotel2Id = response.data.hotelsData.data[1].location_id
-      setHotel2LocationId(hotel2Id)
-      const hotel3Name = response.data.hotelsData.data[2].name
-      setHotel3Location(hotel3Name)
-      const hotel3Id = response.data.hotelsData.data[2].location_id
-      setHotel3LocationId(hotel3Id)
-    } catch (error) {
-      console.log(error)
-    }
+
+  useEffect(() =>{
+    Experience()
+    Experience15()
+    RestPics3()
+  },[id, latLong, rest3Location, rest3LocationId, rest3LocationUrl])
+
+
+
+  const Experience16 = async function(){ 
+    let post = {locationInfo: latLong}
+    const response = await axios.post('http://localhost:5000/search/hotels', post)
+    setHotel1Location(response.data.hotelsData.data[0].name)
+    setHotel1LocationId(response.data.hotelsData.data[0].location_id)
   }
+
   const HotelPics = async function(){
-    try {
-      let post={locationId: hotel1LocationId}
-      // console.log(post)
-      const response = await axios.post('http://localhost:5000/search/experience-pics', post)
-      const hotel1PicUrl = response.data.expPicData.data[0].images.small.url
-      setHotel1LocationUrl(hotel1PicUrl)
-   
-    } catch (error) {
-      console.log(error)
-    }
+    let post={locationId: hotel1LocationId}
+    const response = await axios.post('http://localhost:5000/search/experience-pics', post)
+    setHotel1LocationUrl(response.data.expPicData.data[0].images.small.url)
   }
+
+  useEffect(() =>{
+    Experience()
+    Experience16()
+    HotelPics()
+  },[id, latLong, hotel1Location, hotel1LocationId, hotel1LocationUrl])
+  
+  const Experience17 = async function(){ 
+    let post = {locationInfo: latLong}
+    const response = await axios.post('http://localhost:5000/search/hotels', post)
+    setHotel2Location(response.data.hotelsData.data[1].name)
+    setHotel2LocationId(response.data.hotelsData.data[1].location_id)
+  }
+
   const HotelPics2 = async function(){
-    let post2={locationId: hotel2LocationId}
-    // console.log(post2)
-    const response2 = await axios.post('http://localhost:5000/search/experience-pics', post2)
-    const hotel2PicUrl = response2.data.expPicData.data[0].images.small.url
-    setHotel2LocationUrl(hotel2PicUrl)
-   
+    let post={locationId: hotel2LocationId}
+    const response = await axios.post('http://localhost:5000/search/experience-pics', post)
+    setHotel2LocationUrl(response.data.expPicData.data[0].images.small.url)
   }
+
+  useEffect(() =>{
+    Experience()
+    Experience17()
+    HotelPics2()
+  },[id, latLong, hotel2Location, hotel2LocationId, hotel2LocationUrl])
+
+  const Experience18 = async function(){ 
+    let post = {locationInfo: latLong}
+    const response = await axios.post('http://localhost:5000/search/hotels', post)
+    setHotel3Location(response.data.hotelsData.data[2].name)
+    setHotel3LocationId(response.data.hotelsData.data[2].location_id)
+  }
+
   const HotelPics3 = async function(){
-    let post3={locationId: hotel3LocationId}
-    // console.log(post3)
-    const response3 = await axios.post('http://localhost:5000/search/experience-pics', post3)
-    const hotel3PicUrl = response3.data.expPicData.data[0].images.small.url
-    setHotel3LocationUrl(hotel3PicUrl)
+    let post={locationId: hotel3LocationId}
+    const response = await axios.post('http://localhost:5000/search/experience-pics', post)
+    setHotel3LocationUrl(response.data.expPicData.data[0].images.small.url)
   }
-  const Experience6 = async function(){
-    try {
-      let post = {
-        locationInfo: latLong
-      }
-      
-      const response = await axios.post('http://localhost:5000/search/attractions', post)
-      const attraction1Name = response.data.attractionsData.data[0].name
-      setAttraction1Location(attraction1Name)
-      const attraction1Id = response.data.attractionsData.data[0].location_id
-      setAttraction1LocationId(attraction1Id)
-      const attraction2Name = response.data.attractionsData.data[1].name
-      setAttraction2Location(attraction2Name)
-      const attraction2Id = response.data.attractionsData.data[1].location_id
-      setAttraction2LocationId(attraction2Id)
-      const attraction3Name = response.data.attractionsData.data[2].name
-      setAttraction3Location(attraction3Name)
-      const attraction3Id = response.data.attractionsData.data[2].location_id
-      setAttraction3LocationId(attraction3Id)
-    } catch (error) {
-      console.log(error)
-    }
+
+  useEffect(() =>{
+    Experience()
+    Experience18()
+    HotelPics3()
+  },[id, latLong, hotel3Location, hotel3LocationId, hotel3LocationUrl])
+
+  const Experience19 = async function(){ 
+    let post = {locationInfo: latLong}
+    const response = await axios.post('http://localhost:5000/search/attractions', post)
+    setAttraction1Location(response.data.attractionsData.data[0].name)
+    setAttraction1LocationId(response.data.attractionsData.data[0].location_id)
   }
 
   const AttractionPics = async function(){
     let post={locationId: attraction1LocationId}
-    // console.log(post)
     const response = await axios.post('http://localhost:5000/search/experience-pics', post)
-    const attraction1LocationUrl = response.data.expPicData.data[0].images.small.url
-    setAttraction1LocationUrl(attraction1LocationUrl)
-    console.log(attraction1LocationUrl)
+    setAttraction1LocationUrl(response.data.expPicData.data[0].images.small.url)
+  }
+
+  useEffect(() =>{
+    Experience()
+    Experience19()
+    AttractionPics()
+  },[id, latLong, attraction1Location, attraction1LocationId, attraction1LocationUrl])
+
+  const Experience20 = async function(){ 
+    let post = {locationInfo: latLong}
+    const response = await axios.post('http://localhost:5000/search/attractions', post)
+    setAttraction2Location(response.data.attractionsData.data[1].name)
+    setAttraction2LocationId(response.data.attractionsData.data[1].location_id)
   }
 
   const AttractionPics2 = async function(){
-    let post2={locationId: attraction2LocationId}
-    // console.log(post2)
-    const response2 = await axios.post('http://localhost:5000/search/experience-pics', post2)
-    const attraction2LocationUrl = response2.data.expPicData.data[0].images.small.url
-    console.log(attraction2LocationUrl)
-    setAttraction2LocationUrl(attraction2LocationUrl)
-   
+    let post={locationId: attraction2LocationId}
+    const response = await axios.post('http://localhost:5000/search/experience-pics', post)
+    setAttraction2LocationUrl(response.data.expPicData.data[0].images.small.url)
   }
-  const AttractionPics3 = async function(){
-    let post3={locationId: attraction3LocationId}
-    // console.log(post3)
-    const response3 = await axios.post('http://localhost:5000/search/experience-pics', post3)
-    const attraction3LocationUrl = response3.data.expPicData.data[0].images.small.url
-    console.log(attraction3LocationUrl)
-    setAttraction3LocationUrl(attraction3LocationUrl)
-  }
-  useEffect(()=>{
-    
+
+  useEffect(() =>{
     Experience()
-    Experience2()
-    Experience4()
-    Experience6()
-    RestPics()
-    RestPics2()
-    RestPics3()
-    
-  
-    HotelPics()
-    HotelPics2()
-    HotelPics3()
-    
-    AttractionPics()
+    Experience20()
     AttractionPics2()
+  },[id, latLong, attraction2Location, attraction2LocationId, attraction2LocationUrl])
+
+  const Experience21 = async function(){ 
+    let post = {locationInfo: latLong}
+    const response = await axios.post('http://localhost:5000/search/attractions', post)
+    setAttraction3Location(response.data.attractionsData.data[2].name)
+    setAttraction3LocationId(response.data.attractionsData.data[2].location_id)
+  }
+
+  const AttractionPics3 = async function(){
+    let post={locationId: attraction3LocationId}
+    const response = await axios.post('http://localhost:5000/search/experience-pics', post)
+    setAttraction3LocationUrl(response.data.expPicData.data[0].images.small.url)
+  }
+
+  useEffect(() =>{
+    Experience()
+    Experience21()
     AttractionPics3()
-    
-  },[id]);
+  },[id, latLong, attraction3Location, attraction3LocationId, attraction3LocationUrl])
 
-
-  
 
   return (
     <> 
@@ -323,4 +328,3 @@ export default function DestinationPage3 () {
 
   )
 }
-
