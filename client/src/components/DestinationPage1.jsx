@@ -24,7 +24,7 @@ export default function DestinationPage1 () {
         setPic1(pic1Url)
 
         const response2 = await axios.post('http://localhost:5000/search/photos', post)
-        const pic2Url = response2.data.picData.data[3].images.medium.url
+        const pic2Url = response2.data.picData.data[1].images.medium.url
         setPic2(pic2Url)
 
         const response3 = await axios.post('http://localhost:5000/search/photos', post)
