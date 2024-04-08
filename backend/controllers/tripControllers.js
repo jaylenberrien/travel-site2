@@ -5,7 +5,8 @@ const createTrip = async(req, res) =>{
     const {name, description} = req.body
 
     try {
-        const trip = await Trip.createNewTrip(name, description)
+        const user_id = req.user_id
+        const trip = await Trip.createNewTrip(name, description, user_id)
         res.status(200).json({name, description})
     } catch (error) {
         res.status(400).json({error: error.message}) 

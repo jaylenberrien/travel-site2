@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const Itinerary = require('./Itinerary')
 
 
 const tripSchema = new Schema ({
@@ -10,8 +11,12 @@ const tripSchema = new Schema ({
         //things that will be added to the trip(itenerary or however you spell it)
     itinerary:[{
         type: mongoose.Types.ObjectId,
-        ref: "itinerary",
-    }]
+        ref: "Itinerary",
+    }],
+    user_id:{
+        type: String,
+        required: true
+    }
     
 }
 , {timestamps:true,})
