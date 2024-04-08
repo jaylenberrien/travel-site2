@@ -1,6 +1,8 @@
 .frame{
     background-color: purple;
     margin:4px;
+    height: 230px;
+    width: 200px;
 }
 
 .icon{
