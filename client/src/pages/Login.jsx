@@ -22,6 +22,8 @@ export default function Login () {
 
   const handleSubmit = async (e) =>{
 
+
+
     e.preventDefault();
     await login(username,password)
     console.log(error)
@@ -29,8 +31,8 @@ export default function Login () {
   }
 
   return (
-    <div className='flex'>
-      <div className='bg-black h-screen w-1/2 flex'>
+    <div className='inline-block' class='login-container'>
+      <div class='login-background' className='bg-black h-screen w-1/2 flex my-auto ml-5 mt-5 mb-5'>
         <h1 className='text-white text-8xl m-auto text-right'>Ready for the trip of a lifetime?</h1>
       </div>
       <div className='flex h-screen w-1/2'>
@@ -38,11 +40,11 @@ export default function Login () {
               <h2 className='text-center'>Login</h2>
               <br /><br />
               <form onSubmit={handleSubmit} className='text-center'>
-                  Username: <input type='text' value={username} onChange={(e) => handleChange(e.target.value)} className=''/>
-                  <br /><br />
-                  Password: <input type='password' value={password} onChange={handlePasswordChange} className=''/>
-                  <br /><br />
-                  <input disabled={isLoading} type='submit' value='Submit' className='text-white bg-gray-500'/>
+                Username: <input type='text' value={username} onChange={(e) => handleChange(e.target.value)} className=''/>
+                <br /><br />
+                Password: <input type='password' value={password} onChange={handlePasswordChange} className=''/>
+                <br /><br />
+                <input disabled={isLoading} type='submit' value='Submit' className='text-white bg-gray-500'/>
               </form>
               <br />
               {error && <div className='error'>{error}</div>}

@@ -1,0 +1,13 @@
+.login-background{
+    background-image: url('./imgs/beautiful_scenery_view_with_reflection_on_water_hd_nature.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: none;
+    background-color: green;
+    background-blend-mode: darken; 
+}
+
+.login-container{
+    height: 70vh;
+    display:flex;
+}
