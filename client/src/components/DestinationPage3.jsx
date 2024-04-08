@@ -81,11 +81,11 @@ export default function DestinationPage3 () {
 
 
 
-  // useEffect(() =>{
-  //   Experience()
-  //   Experience13()
-  //   RestPics()
-  // },[id, latLong, rest1Location, rest1LocationId, rest1LocationUrl])
+  useEffect(() =>{
+    Experience()
+    Experience13()
+    RestPics()
+  },[id, latLong, rest1Location, rest1LocationId,])
 
 
   const Experience14 = async function(){
@@ -102,11 +102,11 @@ export default function DestinationPage3 () {
     setRest2LocationUrl(response2.data.expPicData.data[0].images.small.url)      
   }
 
-  // useEffect(() =>{
-  //   Experience()
-  //   Experience14()
-  //   RestPics2()
-  // },[id, latLong, rest2Location, rest2LocationId, rest2LocationUrl])
+  useEffect(() =>{
+    Experience()
+    Experience14()
+    RestPics2()
+  },[id, latLong, rest2Location, rest2LocationId,])
 
   const Experience15 = async function(){
     let post = {locationInfo: latLong}
@@ -121,11 +121,11 @@ export default function DestinationPage3 () {
     setRest3LocationUrl(response3.data.expPicData.data[0].images.small.url)    
   }
 
-  // useEffect(() =>{
-  //   Experience()
-  //   Experience15()
-  //   RestPics3()
-  // },[id, latLong, rest3Location, rest3LocationId, rest3LocationUrl])
+  useEffect(() =>{
+    Experience()
+    Experience15()
+    RestPics3()
+  },[id, latLong, rest3Location, rest3LocationId,])
 
 
 
@@ -142,11 +142,11 @@ export default function DestinationPage3 () {
     setHotel1LocationUrl(response.data.expPicData.data[0].images.small.url)
   }
 
-  // useEffect(() =>{
-  //   Experience()
-  //   Experience16()
-  //   HotelPics()
-  // },[id, latLong, hotel1Location, hotel1LocationId, hotel1LocationUrl])
+  useEffect(() =>{
+    Experience()
+    Experience16()
+    HotelPics()
+  },[id, latLong, hotel1Location, hotel1LocationId,])
   
   const Experience17 = async function(){ 
     let post = {locationInfo: latLong}
@@ -161,11 +161,11 @@ export default function DestinationPage3 () {
     setHotel2LocationUrl(response.data.expPicData.data[0].images.small.url)
   }
 
-  // useEffect(() =>{
-  //   Experience()
-  //   Experience17()
-  //   HotelPics2()
-  // },[id, latLong, hotel2Location, hotel2LocationId, hotel2LocationUrl])
+  useEffect(() =>{
+    Experience()
+    Experience17()
+    HotelPics2()
+  },[id, latLong, hotel2Location, hotel2LocationId,])
 
   const Experience18 = async function(){ 
     let post = {locationInfo: latLong}
@@ -180,11 +180,11 @@ export default function DestinationPage3 () {
     setHotel3LocationUrl(response.data.expPicData.data[0].images.small.url)
   }
 
-  // useEffect(() =>{
-  //   Experience()
-  //   Experience18()
-  //   HotelPics3()
-  // },[id, latLong, hotel3Location, hotel3LocationId, hotel3LocationUrl])
+  useEffect(() =>{
+    Experience()
+    Experience18()
+    HotelPics3()
+  },[id, latLong, hotel3Location, hotel3LocationId, ])
 
   const Experience19 = async function(){ 
     let post = {locationInfo: latLong}
@@ -199,11 +199,11 @@ export default function DestinationPage3 () {
     setAttraction1LocationUrl(response.data.expPicData.data[0].images.small.url)
   }
 
-  // useEffect(() =>{
-  //   Experience()
-  //   Experience19()
-  //   AttractionPics()
-  // },[id, latLong, attraction1Location, attraction1LocationId, attraction1LocationUrl])
+  useEffect(() =>{
+    Experience()
+    Experience19()
+    AttractionPics()
+  },[id, latLong, attraction1Location, attraction1LocationId,])
 
   const Experience20 = async function(){ 
     let post = {locationInfo: latLong}
@@ -218,11 +218,11 @@ export default function DestinationPage3 () {
     setAttraction2LocationUrl(response.data.expPicData.data[0].images.small.url)
   }
 
-  // useEffect(() =>{
-  //   Experience()
-  //   Experience20()
-  //   AttractionPics2()
-  // },[id, latLong, attraction2Location, attraction2LocationId, attraction2LocationUrl])
+  useEffect(() =>{
+    Experience()
+    Experience20()
+    AttractionPics2()
+  },[id, latLong, attraction2Location, attraction2LocationId,])
 
   const Experience21 = async function(){ 
     let post = {locationInfo: latLong}
@@ -237,37 +237,37 @@ export default function DestinationPage3 () {
     setAttraction3LocationUrl(response.data.expPicData.data[0].images.small.url)
   }
 
-  // useEffect(() =>{
-  //   Experience()
-  //   Experience21()
-  //   AttractionPics3()
-  // },[id, latLong, attraction3Location, attraction3LocationId, attraction3LocationUrl])
-
   useEffect(() =>{
     Experience()
-    Experience13()
-    Experience14()
-    Experience15()
-    Experience16()
-    Experience17()
-    Experience18()
-    Experience19()
-    Experience20()
     Experience21()
-
-  },[id, latLong])
-
-  useEffect(() =>{
-    RestPics()
-    RestPics2()
-    RestPics3()
-    HotelPics()
-    HotelPics2()
-    HotelPics3()
-    AttractionPics()
-    AttractionPics2()
     AttractionPics3()
-  },[rest1LocationId, rest2LocationId, rest3LocationId, hotel1LocationId, hotel2LocationId, hotel3LocationId, attraction1LocationId, attraction2LocationId, attraction3LocationId])
+  },[id, latLong, attraction3Location, attraction3LocationId,])
+
+  // useEffect(() =>{
+  //   Experience()
+  //   Experience13()
+  //   Experience14()
+  //   Experience15()
+  //   Experience16()
+  //   Experience17()
+  //   Experience18()
+  //   Experience19()
+  //   Experience20()
+  //   Experience21()
+
+  // },[id, latLong])
+
+  // useEffect(() =>{
+  //   RestPics()
+  //   RestPics2()
+  //   RestPics3()
+  //   HotelPics()
+  //   HotelPics2()
+  //   HotelPics3()
+  //   AttractionPics()
+  //   AttractionPics2()
+  //   AttractionPics3()
+  // },[rest1LocationId, rest2LocationId, rest3LocationId, hotel1LocationId, hotel2LocationId, hotel3LocationId, attraction1LocationId, attraction2LocationId, attraction3LocationId])
   
   
 
