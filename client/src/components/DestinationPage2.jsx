@@ -39,8 +39,8 @@ export default function DestinationPage2 () {
 
 
 
-    <div className='h-screen pt-20 flex flex-col'>
-      <div>More about {nickname} </div>
+    <div className='h-96 pt-20 flex flex-col'>
+      <div><p className='text-3xl font-medium ml-5'>More about {nickname} </p> </div>
       <div className='bg-blue-300 h-4/5 my-auto grid text-center grid-cols-2'>
         <div className='row-span-2'>
           <p>{bio}</p>

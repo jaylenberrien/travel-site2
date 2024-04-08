@@ -277,11 +277,11 @@ export default function DestinationPage3 () {
   
       <div className='h-screen flex bg-green-800'>
         <div>
-          <div className='my-14'>Experience {nickname} </div>
+          <div className='my-14'><p className='text-3xl font-medium ml-5'>Experience <div className='text-purple-700 inline'>{nickname}</div></p></div>
           <div className='grid grid-cols-4'>
-            <div className=' m-4'>
-              <p>Restaurants</p>
-              <p>Indulge in some of the food to to eat in {nickname}</p>
+            <div className=' m-4 ml-5'>
+              <p className='text-lg font-medium mb-3'>Restaurants</p>
+              <p>Indulge in the incredible food in {nickname}</p>
             </div>
             <div class='frame icon-func' >
               {/* <img src='./imgs/add.png' /> */}
@@ -304,9 +304,9 @@ export default function DestinationPage3 () {
             </div>
           </div>
           <div className='grid grid-cols-4 grid-rows-2'>
-          <div className=' m-4'>
-            <p>Places to stay</p>
-            <p>Places to stay during your trip</p>
+          <div className=' m-4 ml-5'>
+            <p className='text-lg font-medium mb-3'>Places to stay</p>
+            <p>Beloved places to stay during your trip</p>
           </div>
           <div class='frame icon-func' >
             <img onClick={handleSelectClick} class='icon icon-func' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' />
@@ -326,9 +326,9 @@ export default function DestinationPage3 () {
             <img src={hotel3LocationUrl} />
             <p>{hotel3Location}</p>
           </div>
-          <div className=' m-4'>
-            <p>Fun attractions</p>
-            <p>Unique attractions and fun this city has to offer</p>
+          <div className=' m-4 ml-5'>
+            <p className='text-lg font-medium mb-3'>Fun attractions</p>
+            <p>Unique attractions and other fun this city has to offer</p>
           </div>
           <div class='frame icon-func' >
             <img onClick={handleSelectClick} class='icon icon-func' src='https://cdn-icons-png.flaticon.com/128/10024/10024212.png' />
