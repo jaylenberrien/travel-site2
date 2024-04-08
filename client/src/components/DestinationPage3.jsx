@@ -56,7 +56,7 @@ export default function DestinationPage3 () {
   const Experience = async function(){
     try {
       let post = {locationId: id}
-      const response = await axios.post("http://localhost:5000/search/location", post)
+      const response = await axios.post('http://localhost:5000/search/location', post)
       const latitude = response.data.locationData.latitude;
       const longitude = response.data.locationData.longitude;
       setLatLong(latitude + "," + longitude)
@@ -85,7 +85,7 @@ export default function DestinationPage3 () {
     Experience()
     Experience13()
     RestPics()
-  },[id, latLong, rest1Location, rest1LocationId, rest1LocationUrl])
+  },[id, latLong, rest1Location, rest1LocationId,])
 
 
   const Experience14 = async function(){
@@ -106,7 +106,7 @@ export default function DestinationPage3 () {
     Experience()
     Experience14()
     RestPics2()
-  },[id, latLong, rest2Location, rest2LocationId, rest2LocationUrl])
+  },[id, latLong, rest2Location, rest2LocationId,])
 
   const Experience15 = async function(){
     let post = {locationInfo: latLong}
@@ -125,7 +125,7 @@ export default function DestinationPage3 () {
     Experience()
     Experience15()
     RestPics3()
-  },[id, latLong, rest3Location, rest3LocationId, rest3LocationUrl])
+  },[id, latLong, rest3Location, rest3LocationId,])
 
 
 
@@ -146,7 +146,7 @@ export default function DestinationPage3 () {
     Experience()
     Experience16()
     HotelPics()
-  },[id, latLong, hotel1Location, hotel1LocationId, hotel1LocationUrl])
+  },[id, latLong, hotel1Location, hotel1LocationId,])
   
   const Experience17 = async function(){ 
     let post = {locationInfo: latLong}
@@ -165,7 +165,7 @@ export default function DestinationPage3 () {
     Experience()
     Experience17()
     HotelPics2()
-  },[id, latLong, hotel2Location, hotel2LocationId, hotel2LocationUrl])
+  },[id, latLong, hotel2Location, hotel2LocationId,])
 
   const Experience18 = async function(){ 
     let post = {locationInfo: latLong}
@@ -184,7 +184,7 @@ export default function DestinationPage3 () {
     Experience()
     Experience18()
     HotelPics3()
-  },[id, latLong, hotel3Location, hotel3LocationId, hotel3LocationUrl])
+  },[id, latLong, hotel3Location, hotel3LocationId, ])
 
   const Experience19 = async function(){ 
     let post = {locationInfo: latLong}
@@ -203,7 +203,7 @@ export default function DestinationPage3 () {
     Experience()
     Experience19()
     AttractionPics()
-  },[id, latLong, attraction1Location, attraction1LocationId, attraction1LocationUrl])
+  },[id, latLong, attraction1Location, attraction1LocationId,])
 
   const Experience20 = async function(){ 
     let post = {locationInfo: latLong}
@@ -222,7 +222,7 @@ export default function DestinationPage3 () {
     Experience()
     Experience20()
     AttractionPics2()
-  },[id, latLong, attraction2Location, attraction2LocationId, attraction2LocationUrl])
+  },[id, latLong, attraction2Location, attraction2LocationId,])
 
   const Experience21 = async function(){ 
     let post = {locationInfo: latLong}
@@ -241,7 +241,35 @@ export default function DestinationPage3 () {
     Experience()
     Experience21()
     AttractionPics3()
-  },[id, latLong, attraction3Location, attraction3LocationId, attraction3LocationUrl])
+  },[id, latLong, attraction3Location, attraction3LocationId,])
+
+  // useEffect(() =>{
+  //   Experience()
+  //   Experience13()
+  //   Experience14()
+  //   Experience15()
+  //   Experience16()
+  //   Experience17()
+  //   Experience18()
+  //   Experience19()
+  //   Experience20()
+  //   Experience21()
+
+  // },[id, latLong])
+
+  // useEffect(() =>{
+  //   RestPics()
+  //   RestPics2()
+  //   RestPics3()
+  //   HotelPics()
+  //   HotelPics2()
+  //   HotelPics3()
+  //   AttractionPics()
+  //   AttractionPics2()
+  //   AttractionPics3()
+  // },[rest1LocationId, rest2LocationId, rest3LocationId, hotel1LocationId, hotel2LocationId, hotel3LocationId, attraction1LocationId, attraction2LocationId, attraction3LocationId])
+  
+  
 
 
   return (

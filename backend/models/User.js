@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 const validator = require('validator')
+const Trip = require('./Trip')
 
 const Schema = mongoose.Schema
 
