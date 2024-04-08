@@ -5,9 +5,10 @@
     background-repeat: none;
     background-color: green;
     background-blend-mode: darken; 
+    height: 100%;
 }
 
 .login-container{
-    height: 70vh;
+    height: 100vh;
     display:flex;
 }
