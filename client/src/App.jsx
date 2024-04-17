@@ -14,8 +14,8 @@ function App() {
   return (
     <>
       {/* <Route path='/login' element={<Login/>}/> */}
-      <Login/>
-      {/* <Register/> */}
+      {/* <Login/> */}
+      <Register/>
       <Routes>
 
         {/* <Route path='/' element={<SearchPage />}/> */}

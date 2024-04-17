@@ -31,7 +31,7 @@ export default function Login () {
   }
 
   return (
-    <div className='h-screen w-screen flex' class='login-container'>
+    <div className='h-screen w-screen flex bg-white' class='login-container'>
       <div className='bg-green-300 h-3/4 w-3/4 m-auto flex shadow-2xl' >
         <div class='login-background' className='bg-black h-5/6 w-5/6 m-10 flex my-auto '>
           {/* <h1 className='text-white text-8xl m-auto text-right'>Ready for the trip of a lifetime?</h1> */}
