@@ -7,7 +7,7 @@ export default function FixedNav(){
       <div className="justify-start p-4">Travel Site</div>
 
       <div className="flex mx-auto">
-          <Link to="/">
+          <Link to="/search">
               <div className="p-4">Discover</div>
           </Link>
           <Link to="/about">
