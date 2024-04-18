@@ -50,7 +50,7 @@ export default function Login () {
           {/* <br /> */}
           {error && <div className='text-sm text-red-700 my-2'>{error}</div>}
           <p className='text-sm'>Dont have an account?</p>
-          <button className=' text-white bg-gray-500 w-44'>Create Account</button>
+          <a  href='/register'><button className=' text-white bg-gray-500 w-44'>Create Account</button></a>
         </div>
   
       </div>
