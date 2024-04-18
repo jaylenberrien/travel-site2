@@ -243,34 +243,6 @@ export default function DestinationPage3 () {
     AttractionPics3()
   },[id, latLong, attraction3Location, attraction3LocationId,])
 
-  // useEffect(() =>{
-  //   Experience()
-  //   Experience13()
-  //   Experience14()
-  //   Experience15()
-  //   Experience16()
-  //   Experience17()
-  //   Experience18()
-  //   Experience19()
-  //   Experience20()
-  //   Experience21()
-
-  // },[id, latLong])
-
-  // useEffect(() =>{
-  //   RestPics()
-  //   RestPics2()
-  //   RestPics3()
-  //   HotelPics()
-  //   HotelPics2()
-  //   HotelPics3()
-  //   AttractionPics()
-  //   AttractionPics2()
-  //   AttractionPics3()
-  // },[rest1LocationId, rest2LocationId, rest3LocationId, hotel1LocationId, hotel2LocationId, hotel3LocationId, attraction1LocationId, attraction2LocationId, attraction3LocationId])
-  
-  
-
 
   return (
     <> 
