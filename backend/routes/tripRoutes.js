@@ -2,8 +2,11 @@ const { createTrip } = require('../controllers/tripControllers')
 const express = require('express')
 const router = express.Router()
 
+ const requireAuth = require('../middleware/requireAuth')
 
-//create trip
+ router.use(requireAuth)
+
+//create trip   
 router.post('/create', createTrip)
 
 

@@ -68,7 +68,7 @@ export default function DestinationPage3 () {
   const Experience13 = async function(){ 
     let post = {locationInfo: latLong}
     const response = await axios.post('http://localhost:5000/search/restaurants', post)
-    setRest1Location(response.data.restaurantData.data[0].name)
+    setRest1Location(response.data.restaurantData.data[0].name) 
     setRest1LocationId(response.data.restaurantData.data[0].location_id)
   }
 
@@ -79,13 +79,14 @@ export default function DestinationPage3 () {
     setRest1LocationUrl(response1.data.expPicData.data[0].images.small.url)
   }
 
-
+  
 
   useEffect(() =>{
     Experience()
     Experience13()
     RestPics()
-  },[id, latLong, rest1Location, rest1LocationId,])
+         
+  },[id, latLong, rest1Location, rest1LocationId, rest1LocationUrl])
 
 
   const Experience14 = async function(){

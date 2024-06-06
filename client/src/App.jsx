@@ -36,3 +36,6 @@ function App() {
 }
 
 export default App
+
+// we can go to the netninja vid to redirect people based on their status, so when the logout
+// the page closes

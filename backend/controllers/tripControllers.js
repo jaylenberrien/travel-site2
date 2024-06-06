@@ -5,6 +5,7 @@ const createTrip = async(req, res) =>{
     const {name, description} = req.body
 
     try {
+        req.user = await User.findOne({ _id  }).select('_id')
         const user_id = req.user_id
         const trip = await Trip.createNewTrip(name, description, user_id)
         res.status(200).json({name, description})
@@ -21,3 +22,4 @@ module.exports = {
     createTrip,
 
 }
+
